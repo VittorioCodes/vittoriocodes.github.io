@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const currentQuestion = questions[questionIndex];
 
     // Şıkları karıştır ve doğru şık yeni sırasını bul
-    const shuffledOptions = shuffleArray([...currentQuestion.options]); // Şıkları kopyalayıp karıştır
+    const shuffledOptions = shuffleArray([...currentQuestion.options]);
     const correctAnswer = shuffledOptions.indexOf(currentQuestion.options[currentQuestion.correctAnswer]);
 
     // Soruyu ekle
@@ -30,10 +30,17 @@ document.addEventListener('DOMContentLoaded', function () {
     // Şıkları ekle
     shuffledOptions.forEach((option, index) => {
       const optionLabel = document.createElement('label');
+      optionLabel.classList.add('option-box');
       const optionInput = document.createElement('input');
       optionInput.type = 'radio';
       optionInput.name = 'option';
       optionInput.value = index;
+
+      // Yanıt seçildiğinde sonucu işleme
+      optionInput.addEventListener('change', function () {
+        handleAnswerSelection(index, correctAnswer);
+      });
+
       optionLabel.appendChild(optionInput);
       optionLabel.appendChild(document.createTextNode(option));
       quizContainer.appendChild(optionLabel);
@@ -53,24 +60,18 @@ document.addEventListener('DOMContentLoaded', function () {
     return array;
   }
 
-  // Testi gönder butonu
-  document.getElementById('submit-btn').addEventListener('click', function () {
-    const selectedOption = document.querySelector('input[name="option"]:checked');
-    if (selectedOption) {
-      const answer = parseInt(selectedOption.value);
-      if (answer === questions[questionIndex].correctAnswer) {
-        score++;
-      }
-      questionIndex++;
-      if (questionIndex < questions.length) {
-        loadQuestion(); // Yeni soruyu yükle
-      } else {
-        showResult(); // Test bittiğinde sonucu göster
-      }
-    } else {
-      alert('Lütfen bir seçenek işaretleyin');
+  // Yanıt seçildiğinde sonucu işle
+  function handleAnswerSelection(selectedIndex, correctAnswer) {
+    if (selectedIndex === correctAnswer) {
+      score++;
     }
-  });
+    questionIndex++;
+    if (questionIndex < questions.length) {
+      loadQuestion(); // Yeni soruyu yükle
+    } else {
+      showResult(); // Test bittiğinde sonucu göster
+    }
+  }
 
   function showResult() {
     document.getElementById('quiz-container').innerHTML = '';
