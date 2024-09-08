@@ -59,6 +59,21 @@ input[type="radio"] {
   display: none;
 }
 
+.button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 10px;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
 /* Sonuç ekranı stili */
 .result-style {
   text-align: center;
