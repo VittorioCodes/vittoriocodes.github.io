@@ -1,0 +1,13 @@
+[
+    {
+      "question": "Türkiye'nin başkenti neresidir?",
+      "options": ["İstanbul", "Ankara", "İzmir", "Bursa"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Dünyanın en yüksek dağı hangisidir?",
+      "options": ["K2", "Everest", "Kangchenjunga", "Lhotse"],
+      "correctAnswer": 1
+    }
+  ]
+  
