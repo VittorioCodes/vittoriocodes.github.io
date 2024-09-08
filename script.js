@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const resultContainer = document.getElementById('result-container');
     const finalScore = (score / questions.length) * 100;
 
-    resultContainer.innerHTML = `<h2>Puanınız: ${finalScore.toFixed(2)} / 100</h2>`;
+    resultContainer.innerHTML = `<h2>Puanınız: ${finalScore.toFixed(0)} / 100</h2>`;
 
     // Puan aralığına göre mesaj göster
     if (finalScore === 100) {
