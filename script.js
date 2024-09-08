@@ -7,8 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
   fetch('questions.json')
     .then(response => response.json())
     .then(data => {
-      questions = data;
-      questions = shuffleArray(questions).slice(0, 10); // Rastgele 10 soru seç
+      questions = shuffleArray(data).slice(0, 10); // Rastgele 10 soru seç
       loadQuestion();
     });
 
@@ -27,7 +26,9 @@ document.addEventListener('DOMContentLoaded', function () {
     questionElement.textContent = currentQuestion.question;
     quizContainer.appendChild(questionElement);
 
-    // Şıkları ekle
+    // Şıkları 2x2 yerleştir
+    const optionsContainer = document.createElement('div');
+    optionsContainer.classList.add('options-grid');
     shuffledOptions.forEach((option, index) => {
       const optionLabel = document.createElement('label');
       optionLabel.classList.add('option-box');
@@ -43,9 +44,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
       optionLabel.appendChild(optionInput);
       optionLabel.appendChild(document.createTextNode(option));
-      quizContainer.appendChild(optionLabel);
-      quizContainer.appendChild(document.createElement('br'));
+      optionsContainer.appendChild(optionLabel);
     });
+    quizContainer.appendChild(optionsContainer);
 
     // Doğru cevabın sırasını güncelle
     questions[questionIndex].correctAnswer = correctAnswer;
@@ -74,7 +75,4 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function showResult() {
-    document.getElementById('quiz-container').innerHTML = '';
-    document.getElementById('result-container').textContent = `Puanınız: ${score} / ${questions.length}`;
-  }
-});
+    document.getElementById('quiz-container').style.display = 'none'; // Soruları
