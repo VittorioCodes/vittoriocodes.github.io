@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function showStartScreen() {
     const quizContainer = document.getElementById('quiz-container');
+    quizContainer.style.display = 'block'; // Quiz ekranını tekrar görünür hale getirme
+    document.getElementById('result-container').innerHTML = ''; // Sonuçları temizleme
+
     quizContainer.innerHTML = `
       <h2>Soulslike Bilgi Yarışmasına Hoş Geldiniz!</h2>
       <button id="start-btn" class="button">Teste Başla</button>
@@ -21,8 +24,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Testi başlat
   function startQuiz() {
-    score = 0;
-    questionIndex = 0;
+    score = 0; // Skoru sıfırla
+    questionIndex = 0; // Soru indeksini sıfırla
 
     // Soruları JSON dosyasından çek
     fetch('questions.json')
@@ -99,9 +102,9 @@ document.addEventListener('DOMContentLoaded', function () {
   function showResult() {
     document.getElementById('quiz-container').style.display = 'none'; // Soruların bulunduğu div'i gizle
     const resultContainer = document.getElementById('result-container');
-    const finalScore = (score / questions.length) * 100;
+    const finalScore = ((score / questions.length) * 100).toFixed(0); // Ondalık olmadan gösterim
 
-    resultContainer.innerHTML = `<h2>Puanın: ${finalScore.toFixed(0)} / 100</h2>`;
+    resultContainer.innerHTML = `<h2>Puanınız: ${finalScore} / 100</h2>`;
 
     // Puan aralığına göre mesaj göster
     if (finalScore === 100) {
@@ -124,13 +127,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Tekrar Dene butonuna tıklanınca testi baştan başlat
     document.getElementById('retry-btn').addEventListener('click', function () {
-      document.getElementById('result-container').innerHTML = ''; // Sonuçları temizle
-      showStartScreen(); // Başlangıç ekranına dön
+      showStartScreen(); // Başlangıç ekranına dön ve testi sıfırla
     });
 
     // Paylaş butonuna tıklanınca X (Twitter) paylaşımını aç
     document.getElementById('share-btn').addEventListener('click', function () {
-      const tweetText = `Soulslike Bilgi Yarışması'nda ${finalScore} puan aldım! Sen de deneyebilirsin! https://vittoriocodes.github.io`;
+      const tweetText = `Soulslike Bilgi Yarışması'nda ${finalScore} puan aldım! Sen de deneyebilirsin!`;
       const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
       window.open(tweetUrl, '_blank');
     });
