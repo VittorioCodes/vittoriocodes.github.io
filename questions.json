@@ -1,12 +1,12 @@
 [
     {
-      "question": "Türkiye'nin başkenti neresidir?",
-      "options": ["İstanbul", "Ankara", "İzmir", "Bursa"],
+      "question": "Dark Souls 1'in DLC'sinden tanıdığımız Knight Artorias'ın lakabı nedir?",
+      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
       "correctAnswer": 1
     },
     {
-      "question": "Dünyanın en yüksek dağı hangisidir?",
-      "options": ["K2", "Everest", "Kangchenjunga", "Lhotse"],
+      "question": "Dark Souls 1 ve 3 oyununda ana mekan olarak kullanılan yerin adı nedir?",
+      "options": ["Majula", "Firelink Shrine", "Hunter's Dream", "Roundtable Hold"],
       "correctAnswer": 1
     }
   ]
