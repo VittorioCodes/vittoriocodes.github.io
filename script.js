@@ -75,4 +75,9 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function showResult() {
-    document.getElementById('quiz-container').style.display = 'none'; // Soruları
+    document.getElementById('quiz-container').style.display = 'none'; // Soruların bulunduğu div'i gizle
+    const resultContainer = document.getElementById('result-container');
+    resultContainer.innerHTML = `<h2>Puanınız: ${score} / ${questions.length}</h2>`;
+    resultContainer.classList.add('result-style'); // Sonuç stilini uygula
+  }
+});
