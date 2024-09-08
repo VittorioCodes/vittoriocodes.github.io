@@ -1,7 +1,8 @@
-/* Genel stil */
+/* Karanlık tema */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+  background-color: #1e1e1e;
+  color: #ffffff;
   margin: 0;
   padding: 0;
   display: flex;
@@ -18,10 +19,9 @@ h1 {
 #quiz-container {
   width: 80%;
   max-width: 600px;
-  margin: 0 auto;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.8);
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   text-align: center;
 }
@@ -32,31 +32,36 @@ h1 {
   margin-top: 20px;
 }
 
+/* 2x2 şık düzeni */
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
 /* Şıkların stili (cam görünüşlü kutular) */
 .option-box {
-  display: block;
-  margin: 10px 0;
   padding: 15px;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.5);
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, border 0.3s ease;
 }
 
 .option-box:hover {
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid #ffffff;
 }
 
-/* Şıkların butonlarını gizle */
 input[type="radio"] {
   display: none;
 }
 
-
-h2 {
-  margin-bottom: 20px;
-  font-size: 1.5rem;
-  color: #333;
+/* Sonuç ekranı stili */
+.result-style {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #ffcc00;
 }
