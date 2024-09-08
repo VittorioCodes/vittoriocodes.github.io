@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const resultContainer = document.getElementById('result-container');
     const finalScore = (score / questions.length) * 100;
 
-    resultContainer.innerHTML = `<h2>Puanınız: ${finalScore.toFixed(0)} / 100</h2>`;
+    resultContainer.innerHTML = `<h2>Puanın: ${finalScore.toFixed(0)} / 100</h2>`;
 
     // Puan aralığına göre mesaj göster
     if (finalScore === 100) {
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Paylaş butonuna tıklanınca X (Twitter) paylaşımını aç
     document.getElementById('share-btn').addEventListener('click', function () {
-      const tweetText = `Soulslike Bilgi Yarışması'nda ${finalScore.toFixed(0)} puan aldım! Sen de deneyebilirsin! https://vittoriocodes.github.io`;
+      const tweetText = `Soulslike Bilgi Yarışması'nda ${finalScore} puan aldım! Sen de deneyebilirsin! https://vittoriocodes.github.io`;
       const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
       window.open(tweetUrl, '_blank');
     });
