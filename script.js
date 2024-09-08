@@ -46,20 +46,45 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     },
     "interactivity": {
-      "detect_on": "canvas",
+      "detect_on": "canvas", // Etkileşimlerin canvas üzerinde algılanması
       "events": {
         "onhover": {
-          "enable": true,
-          "mode": "repulse" // Fare hareketi ile partiküller kaçacak
+          "enable": true, // Fare üzerinde hareket ederken
+          "mode": "repulse" // Partiküller fareden kaçacak
         },
         "onclick": {
-          "enable": true,
-          "mode": "push" // Fare tıklandığında yeni partiküller oluşacak
+          "enable": true, // Fare ile tıklanınca
+          "mode": "push"  // Yeni partiküller eklenecek
         },
-        "resize": true
+        "resize": true // Pencere boyutu değiştiğinde partikülleri yeniden boyutlandır
+      },
+      "modes": {
+        "grab": {
+          "distance": 400,
+          "line_linked": {
+            "opacity": 1
+          }
+        },
+        "bubble": {
+          "distance": 400,
+          "size": 40,
+          "duration": 2,
+          "opacity": 8,
+          "speed": 3
+        },
+        "repulse": {
+          "distance": 200, // Fareden kaçış mesafesi
+          "duration": 0.4
+        },
+        "push": {
+          "particles_nb": 4 // Fare tıklamasıyla eklenecek partikül sayısı
+        },
+        "remove": {
+          "particles_nb": 2 // Fare ile tıklayınca çıkarılacak partikül sayısı
+        }
       }
     },
-    "retina_detect": true
+    "retina_detect": true // Retina ekranlar için daha iyi çözünürlük
   });
 
   // Başlangıç ekranını yükle
