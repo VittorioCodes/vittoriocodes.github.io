@@ -24,7 +24,7 @@ body.dynamic-bg {
   width: 80%;
   max-width: 600px;
   padding: 20px;
-  background: rgba(49, 49, 49, 0.8); /* Cam efekti için arka plan */
+  background: rgba(49, 49, 49, 0.4); /* Cam efekti için arka plan */
   backdrop-filter: blur(10px); /* Arka planı bulanıklaştır */
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
