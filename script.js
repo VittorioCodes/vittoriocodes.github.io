@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Paylaş butonuna tıklanınca X (Twitter) paylaşımını aç
     document.getElementById('share-btn').addEventListener('click', function () {
-      const tweetText = `Soulslike Bilgi Yarışması'nda ${finalScore.toFixed(2)} puan aldım! Sen de deneyebilirsin! https://vittoriocodes.github.io`;
+      const tweetText = `Soulslike Bilgi Yarışması'nda ${finalScore.toFixed(0)} puan aldım! Sen de deneyebilirsin! https://vittoriocodes.github.io`;
       const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
       window.open(tweetUrl, '_blank');
     });
