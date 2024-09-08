@@ -3,6 +3,65 @@ document.addEventListener('DOMContentLoaded', function () {
   let score = 0;
   let questionIndex = 0;
 
+  // Particles.js ayarları
+  particlesJS("particles-js", {
+    "particles": {
+      "number": {
+        "value": 80, // Partikül sayısı
+        "density": {
+          "enable": true,
+          "value_area": 800
+        }
+      },
+      "color": {
+        "value": "#ffffff" // Partikül rengi
+      },
+      "shape": {
+        "type": "circle",
+        "stroke": {
+          "width": 0,
+          "color": "#000000"
+        }
+      },
+      "opacity": {
+        "value": 0.5
+      },
+      "size": {
+        "value": 5,
+        "random": true
+      },
+      "line_linked": {
+        "enable": true,
+        "distance": 150,
+        "color": "#ffffff",
+        "opacity": 0.4,
+        "width": 1
+      },
+      "move": {
+        "enable": true,
+        "speed": 6,
+        "direction": "none",
+        "random": false,
+        "straight": false
+      }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": {
+          "enable": true,
+          "mode": "repulse" // Fare hareketi ile partiküller kaçacak
+        },
+        "onclick": {
+          "enable": true,
+          "mode": "push" // Fare tıklandığında yeni partiküller oluşacak
+        },
+        "resize": true
+      }
+    },
+    "retina_detect": true
+  });
+
   // Başlangıç ekranını yükle
   showStartScreen();
 
