@@ -1,91 +1,23 @@
 document.addEventListener('DOMContentLoaded', function () {
+  let body = document.body;
+
+  // Fare hareketini algıla ve arka plan rengini tatlı mor tonlarında değiştir
+  window.addEventListener('mousemove', function (e) {
+    let x = e.clientX / window.innerWidth;
+    let y = e.clientY / window.innerHeight;
+
+    // Mor tonlarına odaklanmış renk geçişi
+    let baseR = 150 + (x * 50);  // Hafif kırmızımsı-mor tonları
+    let baseG = 50 + (y * 50);   // Daha az yeşil ton, moru vurgulamak için
+    let baseB = 200 + (x * 30);  // Mavi-mor tonlarını güçlendirmek için
+
+    // Fare konumuna göre dinamik arka plan değişikliği
+    body.style.background = `linear-gradient(${45 + (x * 90)}deg, rgba(${baseR}, ${baseG}, ${baseB}, 1), rgba(${baseR - 50}, ${baseG + 30}, ${baseB - 30}, 1))`;
+  });
+
   let questions = [];
   let score = 0;
   let questionIndex = 0;
-
-  // Particles.js ayarları
-  particlesJS("particles-js", {
-    "particles": {
-      "number": {
-        "value": 80, // Partikül sayısı
-        "density": {
-          "enable": true,
-          "value_area": 800
-        }
-      },
-      "color": {
-        "value": "#ffffff" // Partikül rengi
-      },
-      "shape": {
-        "type": "circle",
-        "stroke": {
-          "width": 0,
-          "color": "#000000"
-        }
-      },
-      "opacity": {
-        "value": 0.5
-      },
-      "size": {
-        "value": 5,
-        "random": true
-      },
-      "line_linked": {
-        "enable": true,
-        "distance": 150,
-        "color": "#ffffff",
-        "opacity": 0.4,
-        "width": 1
-      },
-      "move": {
-        "enable": true,
-        "speed": 6,
-        "direction": "none",
-        "random": false,
-        "straight": false
-      }
-    },
-    "interactivity": {
-      "detect_on": "canvas", // Etkileşimlerin canvas üzerinde algılanması
-      "events": {
-        "onhover": {
-          "enable": true, // Fare üzerinde hareket ederken
-          "mode": "repulse" // Partiküller fareden kaçacak
-        },
-        "onclick": {
-          "enable": true, // Fare ile tıklanınca
-          "mode": "push"  // Yeni partiküller eklenecek
-        },
-        "resize": true // Pencere boyutu değiştiğinde partikülleri yeniden boyutlandır
-      },
-      "modes": {
-        "grab": {
-          "distance": 400,
-          "line_linked": {
-            "opacity": 1
-          }
-        },
-        "bubble": {
-          "distance": 400,
-          "size": 40,
-          "duration": 2,
-          "opacity": 8,
-          "speed": 3
-        },
-        "repulse": {
-          "distance": 200, // Fareden kaçış mesafesi
-          "duration": 0.4
-        },
-        "push": {
-          "particles_nb": 4 // Fare tıklamasıyla eklenecek partikül sayısı
-        },
-        "remove": {
-          "particles_nb": 2 // Fare ile tıklayınca çıkarılacak partikül sayısı
-        }
-      }
-    },
-    "retina_detect": true // Retina ekranlar için daha iyi çözünürlük
-  });
 
   // Başlangıç ekranını yükle
   showStartScreen();

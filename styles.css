@@ -9,18 +9,14 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  overflow: hidden; /* Tam ekran arkaplan için sayfa kaydırmasını kaldır */
+  overflow: hidden;
+  background: linear-gradient(45deg, #1e1e1e, #2a2a2a); /* Gradient başlangıcı */
+  transition: background 0.5s ease; /* Arka plan geçişleri */
 }
 
-/* Particles.js arka plan */
-#particles-js {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: #313131; /* Arkaplan rengi (isteğe bağlı) */
-  top: 0;
-  left: 0;
-  z-index: -1; /* Partiküllerin arkaplanda kalmasını sağla */
+/* Fare ile hareket eden arka plan */
+body.dynamic-bg {
+  background: linear-gradient(45deg, #1e1e1e, #313131); /* Default renk */
 }
 
 /* Quiz container */
@@ -34,14 +30,13 @@ body {
   border-radius: 10px;
   text-align: center;
   z-index: 1;
-  pointer-events: none; /* Fare etkileşimlerini devre dışı bırak */
 }
 
+/* Sonuç ekranı stili */
 #result-container {
   font-weight: bold;
   font-size: 1.5rem;
   margin-top: 20px;
-  pointer-events: none; /* Fare etkileşimlerini devre dışı bırak */
 }
 
 /* 2x2 şık düzeni */
@@ -60,7 +55,6 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.5); /* Beyaz ince kontur */
   cursor: pointer;
   transition: background 0.3s ease, border 0.3s ease;
-  pointer-events: auto; /* Fare etkileşimlerini geri aç */
 }
 
 .option-box:hover {
@@ -82,7 +76,6 @@ input[type="radio"] {
   cursor: pointer;
   font-size: 1rem;
   margin: 10px;
-  pointer-events: auto; /* Fare etkileşimlerini geri aç */
 }
 
 .button:hover {
