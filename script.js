@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (finalScore === 100) {
       resultContainer.innerHTML += "<p>Tebrikler! FromSoftware seni ayakta alkışlıyor!</p>";
     } else if (finalScore >= 80) {
-      resultContainer.innerHTML += "<p>En iyisi olmasan da Solaire seni hâlâ seviyor! \o/</p>";
+      resultContainer.innerHTML += "<p>En iyisi olmasan da Solaire seni hâlâ seviyor! \\o/</p>";
     } else if (finalScore >= 60) {
       resultContainer.innerHTML += "<p>Flask içmeyi yeni öğrenmişsin. Daha fazla çabalaman lazım!</p>";
     } else {
