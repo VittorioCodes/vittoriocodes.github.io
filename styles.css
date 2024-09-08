@@ -9,13 +9,21 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  overflow: hidden; /* Tam ekran arkaplan için sayfa kaydırmasını kaldır */
 }
 
-h1 {
-  text-align: center;
-  font-size: 2rem;
+/* Particles.js arka plan */
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #313131; /* Arkaplan rengi (isteğe bağlı) */
+  top: 0;
+  left: 0;
+  z-index: -1; /* Partiküllerin arkaplanda kalmasını sağla */
 }
 
+/* Quiz container */
 #quiz-container {
   width: 80%;
   max-width: 600px;
@@ -24,39 +32,13 @@ h1 {
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   text-align: center;
+  z-index: 1; /* Quiz içeriğini arkaplandan önde göster */
 }
 
 #result-container {
   font-weight: bold;
   font-size: 1.5rem;
   margin-top: 20px;
-}
-
-/* 2x2 şık düzeni */
-.options-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-}
-
-/* Şıkların stili (cam görünüşlü kutular) */
-.option-box {
-  padding: 15px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  cursor: pointer;
-  transition: background 0.3s ease, border 0.3s ease;
-}
-
-.option-box:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid #ffffff;
-}
-
-input[type="radio"] {
-  display: none;
 }
 
 .button {
