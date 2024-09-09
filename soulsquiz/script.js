@@ -177,6 +177,36 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  // Canvas API ile sonuç görseli oluşturma fonksiyonu
+function generateResultImage(finalScore, gameName) {
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  
+  // Canvas boyutu ve arka plan rengi
+  canvas.width = 600;
+  canvas.height = 300;
+  ctx.fillStyle = '#282c34'; // Arka plan rengi
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Başlık
+  ctx.font = '30px Arial';
+  ctx.fillStyle = '#ffffff'; // Beyaz renk
+  ctx.fillText('Soulslike Quiz Sonuçları', 150, 50);
+
+  // Oyun adı ve skor
+  ctx.font = '24px Arial';
+  ctx.fillText(`Oyun: ${gameName}`, 150, 120);
+  ctx.fillText(`Puan: ${finalScore} / 100`, 150, 170);
+
+  // İmza
+  ctx.font = '16px Arial';
+  ctx.fillText('vittoriocodes.github.io', 150, 250);
+
+  // Görseli base64 formatına çevir
+  return canvas.toDataURL('image/png');
+}
+
+
   function showResult() {
     const quizContainer = document.getElementById('quiz-container');
     quizContainer.style.display = 'none';
@@ -199,16 +229,36 @@ document.addEventListener('DOMContentLoaded', function () {
       resultContainer.innerHTML = `<h2>Puanınız: ${finalScore} / 100</h2><p>Yeterli değilsin!</p>`;
     }
 
+    // Sonuç görselini oluştur
+    const resultImage = generateResultImage(finalScore, gameName);
+    // Sonuç görselini sonuç ekranına ekle (img etiketi olarak)
+    const resultImageElement = document.createElement('img');
+    resultImageElement.src = resultImage; // Base64 veri URI'yi src olarak kullan
+    resultImageElement.alt = 'Test Sonucu Görseli';
+    resultImageElement.style.display = 'block';
+    resultImageElement.style.margin = '20px auto';
+    resultContainer.appendChild(resultImageElement); // Görseli sonuç ekranına ekle
+
     resultContainer.innerHTML += `
       <button id="retry-btn" class="button">Tekrar Dene</button>
       <button id="share-btn" class="button">Sonucu Paylaş</button>
     `;
 
+    // Paylaş butonuna tıklandığında
     document.getElementById('share-btn').addEventListener('click', function () {
-      const tweetText = `Soulslike Bilgi Yarışması'nda ${gameName} testinde ${finalScore} puan aldım! Sen de deneyebilirsin! https://vittoriocodes.github.io/soulsquiz`;
+      // Görseli indirilebilir hale getirmek
+      const link = document.createElement('a');
+      link.href = resultImage;
+      link.download = `test_sonuclari_${gameName}.png`; // Görselin adı
+      link.click();
+
+      // Tweet metni
+      const tweetText = `Soulslike Bilgi Yarışması'nda ${gameName} testinde ${finalScore} puan aldım! Sen de deneyebilirsin! https://vittoriocodes.github.io`;
       const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
+
+      // Yeni pencerede tweet paylaşma
       window.open(tweetUrl, '_blank');
-    });
+  });
 
     document.getElementById('retry-btn').addEventListener('click', function () {
       showGameSelectionScreen();
