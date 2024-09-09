@@ -10,12 +10,10 @@ document.addEventListener('DOMContentLoaded', function () {
     let x = e.clientX / window.innerWidth;
     let y = e.clientY / window.innerHeight;
 
-    // Mor tonlarına odaklanmış renk geçişi
-    let baseR = 150 + (x * 50);  // Kırmızımsı-mor tonları
-    let baseG = 50 + (y * 50);   // Daha az yeşil ton, moru öne çıkarmak için
-    let baseB = 200 + (x * 30);  // Mavi-mor tonlarını güçlendirmek için
+    let baseR = 150 + (x * 50); 
+    let baseG = 50 + (y * 50);   
+    let baseB = 200 + (x * 30);
 
-    // Fare konumuna göre dinamik arka plan değişikliği
     body.style.background = `linear-gradient(${45 + (x * 90)}deg, rgba(${baseR}, ${baseG}, ${baseB}, 1), rgba(${baseR - 50}, ${baseG + 30}, ${baseB - 30}, 1))`;
   });
 
@@ -30,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
     gameButtons.forEach(button => {
       button.addEventListener('click', function () {
         selectedGame = this.getAttribute('data-game');
-        startQuiz(); // Seçilen oyuna göre testi başlat
+        startQuiz(); 
       });
     });
   }
@@ -44,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
     fetch(`${selectedGame}.json`)
       .then(response => response.json())
       .then(data => {
-        questions = shuffleArray(data).slice(0, 10); // Rastgele 10 soru seç
+        questions = shuffleArray(data).slice(0, 10); 
         loadQuestion();
       });
   }
@@ -62,9 +60,12 @@ document.addEventListener('DOMContentLoaded', function () {
     questionElement.textContent = currentQuestion.question;
     quizContainer.appendChild(questionElement);
 
+    // Şıkları karıştır
+    const shuffledOptions = shuffleArray([...currentQuestion.options]);
+
     const optionsContainer = document.createElement('div');
     optionsContainer.classList.add('options-grid');
-    currentQuestion.options.forEach((option, index) => {
+    shuffledOptions.forEach((option, index) => {
       const optionLabel = document.createElement('label');
       optionLabel.classList.add('option-box');
       const optionInput = document.createElement('input');
@@ -73,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
       optionInput.value = index;
 
       optionInput.addEventListener('change', function () {
-        handleAnswerSelection(index, currentQuestion.correctAnswer);
+        handleAnswerSelection(index, currentQuestion.options.indexOf(option));
       });
 
       optionLabel.appendChild(optionInput);
@@ -102,34 +103,30 @@ document.addEventListener('DOMContentLoaded', function () {
     resultContainer.style.display = 'block';
     const finalScore = ((score / questions.length) * 100).toFixed(0);
 
-    resultContainer.innerHTML = `<h2>Puanınız: ${finalScore} / 100</h2>`;
-    if (finalScore === 100) {
-      resultContainer.innerHTML += "<p>Tebrikler! FromSoftware seni ayakta alkışlıyor!</p>";
+    // Puan aralıklarına göre mesajlar doğru sırayla kontrol ediliyor
+    if (finalScore == 100) {
+      resultContainer.innerHTML = `<h2>Puanınız: ${finalScore} / 100</h2><p>Tebrikler! FromSoftware seni ayakta alkışlıyor!</p>`;
     } else if (finalScore >= 80) {
-      resultContainer.innerHTML += "<p>En iyisi olmasan da Solaire seni hâlâ seviyor! \\o/</p>";
+      resultContainer.innerHTML = `<h2>Puanınız: ${finalScore} / 100</h2><p>En iyisi olmasan da Solaire seni hâlâ seviyor! \\o/</p>`;
     } else if (finalScore >= 60) {
-      resultContainer.innerHTML += "<p>Flask içmeyi yeni öğrenmişsin. Daha fazla çabalaman lazım!</p>";
+      resultContainer.innerHTML = `<h2>Puanınız: ${finalScore} / 100</h2><p>Flask içmeyi yeni öğrenmişsin. Daha fazla çabalaman lazım!</p>`;
     } else {
-      resultContainer.innerHTML += "<p>Yeterli değilsin!</p>";
+      resultContainer.innerHTML = `<h2>Puanınız: ${finalScore} / 100</h2><p>Yeterli değilsin!</p>`;
     }
 
     resultContainer.innerHTML += `
+      <button id="share-btn" class="button">Sonucu Paylaş</button>
       <button id="retry-btn" class="button">Tekrar Dene</button>
     `;
 
-    document.getElementById('retry-btn').addEventListener('click', function () {
-      showGameSelectionScreen(); // Başlangıç ekranına dön
-    });
-
-    // Sonucu paylaşma butonu
-    resultContainer.innerHTML += `
-    <button id="share-btn" class="button">Sonucu Paylaş</button>
-    `;
-  
     document.getElementById('share-btn').addEventListener('click', function () {
       const tweetText = `Soulslike Bilgi Yarışması'nda ${finalScore} puan aldım! Sen de deneyebilirsin! https://vittoriocodes.github.io`;
       const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
       window.open(tweetUrl, '_blank');
+    });
+
+    document.getElementById('retry-btn').addEventListener('click', function () {
+      showGameSelectionScreen();
     });
   }
 
@@ -142,5 +139,5 @@ document.addEventListener('DOMContentLoaded', function () {
     return array;
   }
 
-  showGameSelectionScreen(); // Uygulama başladığında oyun seçimi ekranını göster
+  showGameSelectionScreen();
 });
