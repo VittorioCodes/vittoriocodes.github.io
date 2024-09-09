@@ -73,8 +73,10 @@ document.addEventListener('DOMContentLoaded', function () {
       optionInput.name = 'option';
       optionInput.value = index;
 
+      // Doğru cevabın yeni indeksini bul ve karşılaştır
       optionInput.addEventListener('change', function () {
-        handleAnswerSelection(index, currentQuestion.options.indexOf(option));
+        const correctAnswerIndex = shuffledOptions.indexOf(currentQuestion.options[currentQuestion.correctAnswer]);
+        handleAnswerSelection(index, correctAnswerIndex);
       });
 
       optionLabel.appendChild(optionInput);
@@ -84,8 +86,8 @@ document.addEventListener('DOMContentLoaded', function () {
     quizContainer.appendChild(optionsContainer);
   }
 
-  function handleAnswerSelection(selectedIndex, correctAnswer) {
-    if (selectedIndex === correctAnswer) {
+  function handleAnswerSelection(selectedIndex, correctAnswerIndex) {
+    if (selectedIndex === correctAnswerIndex) {
       score++;
     }
     questionIndex++;
@@ -115,8 +117,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     resultContainer.innerHTML += `
-      <button id="share-btn" class="button">Sonucu Paylaş</button>
       <button id="retry-btn" class="button">Tekrar Dene</button>
+      <button id="share-btn" class="button">Sonucu Paylaş</button>
     `;
 
     document.getElementById('share-btn').addEventListener('click', function () {
