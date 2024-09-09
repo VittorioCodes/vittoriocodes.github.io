@@ -213,6 +213,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById('retry-btn').addEventListener('click', function () {
       showGameSelectionScreen();
+      audio.pause();
     });
   }
 
