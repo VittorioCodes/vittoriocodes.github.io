@@ -86,6 +86,7 @@ body.dynamic-bg {
 #volume-slider {
   width: 100px; /* Slider'ın genişliği */
   margin-right: 10px; /* Ses butonuna olan mesafe */
+  vertical-align: middle; /* Buton ile aynı hizada olacak şekilde ortalar */
   -webkit-appearance: none; /* Varsayılan stili kaldır */
   appearance: none;
   background: linear-gradient(to right, red 0%, red 0%, #ccc 0%, #ccc 100%); /* Başlangıçta kırmızı ve gri */
@@ -135,6 +136,7 @@ body.dynamic-bg {
   border-radius: 50%;
   cursor: pointer;
   font-size: 20px;
+  vertical-align: middle; /* Butonun slider ile hizalanmasını sağlar */
 }
 
 #toggle-music-btn:hover {
