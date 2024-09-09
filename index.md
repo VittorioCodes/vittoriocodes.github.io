@@ -10,6 +10,6 @@
 </div>
 <div class="card">
   <h3>Yes, indeed.</h3>
-  <img src="./soulsquiz/images/bonfire.png"></img><br>
+  <img src="https://i.pinimg.com/originals/a1/a3/c3/a1a3c30fb3cac89a927278099639fa5c.gif"><br>
   <span class="card-link-spanner"></span>
 </div>
