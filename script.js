@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
   let score = 0;
   let questionIndex = 0;
   let selectedGame = '';
+  let audio = new Audio(); // Müzik oynatıcı
+  let isPlaying = false;
 
   // Fare hareketini algıla ve arka plan rengini tatlı mor tonlarında değiştir
   window.addEventListener('mousemove', function (e) {
@@ -17,12 +19,31 @@ document.addEventListener('DOMContentLoaded', function () {
     body.style.background = `linear-gradient(${45 + (x * 90)}deg, rgba(${baseR}, ${baseG}, ${baseB}, 1), rgba(${baseR - 50}, ${baseG + 30}, ${baseB - 30}, 1))`;
   });
 
-  // Oyun seçimi ekranını göster
+  // Müzik kontrol butonunu göster/gizle
+  const musicControl = document.getElementById('music-control');
+  const toggleMusicBtn = document.getElementById('toggle-music-btn');
+
+  // Müzik başlatma/durdurma işlevi
+  function toggleMusic() {
+    if (isPlaying) {
+      audio.pause();
+      toggleMusicBtn.textContent = '🔇'; // Sesi kapatma simgesi
+    } else {
+      audio.play();
+      toggleMusicBtn.textContent = '🔊'; // Sesi açma simgesi
+    }
+    isPlaying = !isPlaying;
+  }
+
+  toggleMusicBtn.addEventListener('click', toggleMusic);
+
+// Oyun seçimi ekranını göster
   function showGameSelectionScreen() {
     const gameSelectionContainer = document.getElementById('game-selection-container');
     gameSelectionContainer.style.display = 'block';
     document.getElementById('quiz-container').style.display = 'none';
     document.getElementById('result-container').style.display = 'none';
+    musicControl.style.display = 'none'; // Müzik kontrol butonunu gizle
 
     const gameButtons = document.querySelectorAll('.game-btn');
     gameButtons.forEach(button => {
@@ -38,6 +59,9 @@ document.addEventListener('DOMContentLoaded', function () {
     score = 0;
     questionIndex = 0;
 
+    // Seçilen oyunun müziğini yükle
+    loadGameMusic(selectedGame);
+
     // Seçilen oyunun JSON dosyasını yükle
     fetch(`${selectedGame}.json`)
       .then(response => response.json())
@@ -45,6 +69,28 @@ document.addEventListener('DOMContentLoaded', function () {
         questions = shuffleArray(data).slice(0, 10); 
         loadQuestion();
       });
+  }
+
+   // Oyun müziğini yükle ve çalmaya başla
+   function loadGameMusic(game) {
+    let musicFile = '';
+
+    if (game === 'dark_souls_1') {
+      musicFile = 'dark_souls_1.mp3';
+    } else if (game === 'dark_souls_2') {
+      musicFile = 'dark_souls_2.mp3';
+    } else if (game === 'dark_souls_3') {
+      musicFile = 'dark_souls_3.mp3';
+    } else if (game === 'elden_ring') {
+      musicFile = 'elden_ring.mp3';
+    }
+
+    audio.src = musicFile;
+    audio.loop = true; // Müzik döngüde oynatılır
+    audio.play();
+    isPlaying = true;
+    toggleMusicBtn.textContent = '🔊'; // Sesi açma simgesi
+    musicControl.style.display = 'block'; // Müzik kontrol butonunu göster
   }
 
   function loadQuestion() {

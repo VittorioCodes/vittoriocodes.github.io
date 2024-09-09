@@ -73,6 +73,29 @@ body.dynamic-bg {
   text-align: center;
 }
 
+/* Müzik kontrol butonu */
+#music-control {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 10; /* Üstte durması için */
+}
+
+#toggle-music-btn {
+  background-color: rgba(255, 255, 255, 0.2); /* Hafif şeffaf buton */
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+#toggle-music-btn:hover {
+  background-color: rgba(255, 255, 255, 0.4); /* Üzerine gelindiğinde renk değişir */
+}
+
+
 .option-box:hover,
 .game-btn:hover {
   background: rgba(255, 255, 255, 0.25); /* Hover olduğunda arka planı daha belirgin yap */
