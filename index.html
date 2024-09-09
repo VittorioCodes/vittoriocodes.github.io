@@ -8,6 +8,18 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+  <!-- Müzik kontrol butonu (sağ üst köşe) -->
+  <div id="music-control" style="display: none;">
+    <button id="toggle-music-btn" class="button">🔊</button>
+  </div>
+  
+  <!-- Müzik kontrol butonu ve ses seviyesi slider'ı -->
+  <div id="music-control" style="display: none;">
+    <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="1">
+    <button id="toggle-music-btn" class="button">🔊</button>
+  </div>
+
   <!-- Oyun seçimi ekranı -->
   <div id="game-selection-container">
     <h2>Hangi oyunun testini yapmak istersiniz?</h2>
@@ -15,11 +27,6 @@
     <button class="game-btn" data-game="dark_souls_2">Dark Souls 2</button>
     <button class="game-btn" data-game="dark_souls_3">Dark Souls 3</button>
     <button class="game-btn" data-game="elden_ring">Elden Ring</button>
-  </div>
-
-  <!-- Müzik kontrol butonu (sağ üst köşe) -->
-  <div id="music-control" style="display: none;">
-    <button id="toggle-music-btn" class="button">🔊</button>
   </div>
 
   <!-- Quiz ekranı -->
