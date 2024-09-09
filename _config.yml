@@ -2,17 +2,6 @@ theme: jekyll-theme-minimal
 title: VittorioCodes Main Site
 description: For Soulslike games quiz, <a href="https://vittoriocodes.github.io/soulsquiz">click me</a>
 
-<div class="card">
-  <h3>Soulslike Quiz</h3>
-  <p><b>Dark Souls 1-2-3 ve Elden Ring quiz</b><br></p>
-  <a href="https://vittoriocodes.github.io/soulsquiz"><span class="card-link-spanner"></span></a>
-</div>
-<div class="card">
-  <h3>Phasmophobia İnteraktif Rehber</h3>
-  <p><b>Masaüstü uygulaması ile birlikte, arkadaşlarınızla senkron kullanabileceğiniz interaktif rehber</b><br></p>
-  <a href="https://tybayn.github.io/phasmo-cheat-sheet-tr/"><span class="card-link-spanner"></span></a>
-</div>
-
 navigation:
 - name: Soulslike Games Quiz
   link: ./soulsquiz.html
