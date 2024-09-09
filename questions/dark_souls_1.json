@@ -75,8 +75,28 @@
       "correctAnswer": 1
     },
     {
-      "question": "The Four Kings boss'u ile dövüşmek için hangi eşyayı takmamız/kullanmamız gerekebilir?",
+      "question": "The Four Kings boss'u ile dövüşmek için hangi eşyayı takmamız/kullanmamız gerekir?",
       "options": ["Ring of Fog", "Covenant of Artorias", "Wolf Ring", "Darkmoon Seance Ring"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Gwyndolin boss'una erişmek için takmamız gereken yüzük hangisidir?",
+      "options": ["Dusk Crown Ring", "Darkmoon Seance Ring", "Ring of the Sun Princess", "Old Witch's Ring"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Topluluk tarafından oyunun en kötü bölgesi olarak ünlenen yer neresidir?",
+      "options": ["Tomb of Giants", "Blighttown", "Demon Ruins", "Anor Londo"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Çıkardığınız zaman kırılan yüzük hangisidir?",
+      "options": ["Calamity Ring", "Ring of Favor and Protection", "Rusted Iron Ring", "Ring of Sacrifice"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Oyunda boss silahlarını edinmek için ne yapmamız gerek?",
+      "options": ["+10 basılmış silah elindeyken boss ruhunu kullanmak", "+10 basılmış silahı Giant Blacksmith'e götürerek boss ruhu ile çevirmek", "+10 basılmış silahı Andre'ye götürüp boss ruhu ile çevirmek", "Silahına sahip olmak istediğin boss'un ruhunu kullanmak"],
       "correctAnswer": 1
     }
   ]
