@@ -38,10 +38,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
   toggleMusicBtn.addEventListener('click', toggleMusic);
 
-  // Ses seviyesini ayarlama
+  // Ses seviyesini ayarlama ve Slider renklendirme
   volumeSlider.addEventListener('input', function () {
     audio.volume = volumeSlider.value; // Ses seviyesini slider'ın değerine göre ayarla
+    updateSliderColor(volumeSlider); // Slider'ın renkli kısmını güncelle
   });
+
+  // Slider'ın dolan kısmını renklendirme
+  function updateSliderColor(slider) {
+    const value = (slider.value - slider.min) / (slider.max - slider.min) * 100; // Yüzdelik hesap
+    slider.style.background = `linear-gradient(to right, red ${value}%, #ccc ${value}%)`;
+  }
 
 // Oyun seçimi ekranını göster
   function showGameSelectionScreen() {
@@ -97,6 +104,9 @@ document.addEventListener('DOMContentLoaded', function () {
     isPlaying = true;
     toggleMusicBtn.textContent = '🔊'; // Sesi açma simgesi
     musicControl.style.display = 'block'; // Müzik kontrol butonunu göster
+    
+    // Müzik başladığında slider rengini güncelle
+    updateSliderColor(volumeSlider);
   }
 
   function loadQuestion() {
