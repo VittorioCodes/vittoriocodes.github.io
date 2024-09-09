@@ -1,3 +1,3 @@
 layout: page
-title: "Soulslike Quiz"
+title: "Soulslike Quiz by VittorioCodes"
 permalink: /soulsquiz
