@@ -1,11 +1,11 @@
 [
     {
-      "question": "Dark Souls 1'in DLC'sinden tanıdığımız Knight Artorias'ın lakabı nedir?",
+      "question": "Soru1?",
       "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
       "correctAnswer": 1
     },
     {
-      "question": "Dark Souls 1 ve 3 oyununda ana mekan olarak kullanılan yerin adı nedir?",
+      "question": "Soru2?",
       "options": ["Majula", "Firelink Shrine", "Hunter's Dream", "Roundtable Hold"],
       "correctAnswer": 1
     },
@@ -56,6 +56,21 @@
     },
     {
       "question": "Soru12?",
+      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Soru13?",
+      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Soru14?",
+      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Soru15?",
       "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
       "correctAnswer": 1
     }
