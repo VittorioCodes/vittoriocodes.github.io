@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function () {
             ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
 
             // Hafif bir blur efekti ekleyin
-            ctx.filter = 'blur(2px)';
+            ctx.filter = 'blur(4px)';
             ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
             ctx.filter = 'none'; // Diğer çizimlerde bulanıklık istemiyoruz
 
