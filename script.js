@@ -24,6 +24,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const toggleMusicBtn = document.getElementById('toggle-music-btn');
   const volumeSlider = document.getElementById('volume-slider');
 
+  // Slider başlangıç değerini %50 olarak ayarla
+  volumeSlider.value = 0.5;
+
   // Müzik başlatma/durdurma işlevi
   function toggleMusic() {
     if (isPlaying) {
@@ -104,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
     isPlaying = true;
     toggleMusicBtn.textContent = '🔊'; // Sesi açma simgesi
     musicControl.style.display = 'block'; // Müzik kontrol butonunu göster
-    
+
     // Müzik başladığında slider rengini güncelle
     updateSliderColor(volumeSlider);
   }
