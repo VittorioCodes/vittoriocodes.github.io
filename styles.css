@@ -47,14 +47,6 @@ body.dynamic-bg {
   margin: 20px auto;
   width: 150px; /* Görsel boyutunu ayarlayabilirsiniz */
   height: auto;
-  animation: solaireDance 2s infinite; /* Solaire dans animasyonu */
-}
-
-/* Animasyon ayarı (dönebilir, zıplayabilir vs.) */
-@keyframes solaireDance {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); } /* Yukarı zıplama efekti */
-  100% { transform: translateY(0); }
 }
 
 /* 2x2 şık düzeni */
