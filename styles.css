@@ -73,12 +73,19 @@ body.dynamic-bg {
   text-align: center;
 }
 
-/* Müzik kontrol butonu */
+/* Müzik kontrol butonu ve kaydırma barı */
 #music-control {
   position: fixed;
   top: 10px;
   right: 10px;
   z-index: 10; /* Üstte durması için */
+  display: flex;
+  align-items: center; /* Ses kontrol butonu ve slider yan yana olacak */
+}
+
+#volume-slider {
+  width: 100px; /* Slider'ın genişliği */
+  margin-right: 10px; /* Ses butonuna olan mesafe */
 }
 
 #toggle-music-btn {
@@ -94,6 +101,7 @@ body.dynamic-bg {
 #toggle-music-btn:hover {
   background-color: rgba(255, 255, 255, 0.4); /* Üzerine gelindiğinde renk değişir */
 }
+
 
 
 .option-box:hover,

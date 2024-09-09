@@ -19,9 +19,10 @@ document.addEventListener('DOMContentLoaded', function () {
     body.style.background = `linear-gradient(${45 + (x * 90)}deg, rgba(${baseR}, ${baseG}, ${baseB}, 1), rgba(${baseR - 50}, ${baseG + 30}, ${baseB - 30}, 1))`;
   });
 
-  // Müzik kontrol butonunu göster/gizle
+  // Müzik kontrol butonu ve ses seviyesi slider'ı
   const musicControl = document.getElementById('music-control');
   const toggleMusicBtn = document.getElementById('toggle-music-btn');
+  const volumeSlider = document.getElementById('volume-slider');
 
   // Müzik başlatma/durdurma işlevi
   function toggleMusic() {
@@ -36,6 +37,11 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   toggleMusicBtn.addEventListener('click', toggleMusic);
+
+  // Ses seviyesini ayarlama
+  volumeSlider.addEventListener('input', function () {
+    audio.volume = volumeSlider.value; // Ses seviyesini slider'ın değerine göre ayarla
+  });
 
 // Oyun seçimi ekranını göster
   function showGameSelectionScreen() {
@@ -63,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
     loadGameMusic(selectedGame);
 
     // Seçilen oyunun JSON dosyasını yükle
-    fetch(`${selectedGame}.json`)
+    fetch(`questions/${selectedGame}.json`)
       .then(response => response.json())
       .then(data => {
         questions = shuffleArray(data).slice(0, 10); 
@@ -76,13 +82,13 @@ document.addEventListener('DOMContentLoaded', function () {
     let musicFile = '';
 
     if (game === 'dark_souls_1') {
-      musicFile = 'dark_souls_1.mp3';
+      musicFile = 'music/dark_souls_1.mp3';
     } else if (game === 'dark_souls_2') {
-      musicFile = 'dark_souls_2.mp3';
+      musicFile = 'music/dark_souls_2.mp3';
     } else if (game === 'dark_souls_3') {
-      musicFile = 'dark_souls_3.mp3';
+      musicFile = 'music/dark_souls_3.mp3';
     } else if (game === 'elden_ring') {
-      musicFile = 'elden_ring.mp3';
+      musicFile = 'music/elden_ring.mp3';
     }
 
     audio.src = musicFile;
