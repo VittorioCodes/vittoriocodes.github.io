@@ -6,6 +6,17 @@ document.addEventListener('DOMContentLoaded', function () {
   let selectedGame = '';
   let audio = new Audio(); // Müzik oynatıcı
   let isPlaying = false;
+  // Oyun adlarını kullanıcı dostu metinlerle eşleştirme
+  let gameName = '';
+  if (selectedGame === 'dark_souls_1') {
+    gameName = 'Dark Souls 1';
+  } else if (selectedGame === 'dark_souls_2') {
+    gameName = 'Dark Souls 2';
+  } else if (selectedGame === 'dark_souls_3') {
+    gameName = 'Dark Souls 3';
+  } else if (selectedGame === 'elden_ring') {
+    gameName = 'Elden Ring';
+  }
 
   // Fare hareketini algıla ve arka plan rengini tatlı mor tonlarında değiştir
   window.addEventListener('mousemove', function (e) {
@@ -193,7 +204,7 @@ document.addEventListener('DOMContentLoaded', function () {
     `;
 
     document.getElementById('share-btn').addEventListener('click', function () {
-      const tweetText = `Soulslike Bilgi Yarışması'nda ${finalScore} puan aldım! Sen de deneyebilirsin! https://vittoriocodes.github.io`;
+      const tweetText = `Soulslike Bilgi Yarışması'nda ${gameName} testinde ${finalScore} puan aldım! Sen de deneyebilirsin! https://vittoriocodes.github.io/soulsquiz`;
       const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
       window.open(tweetUrl, '_blank');
     });
