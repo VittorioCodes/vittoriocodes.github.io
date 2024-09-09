@@ -4,26 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Soulslike Quiz Uygulaması</title>
-  <!-- styles.css dosyasını buraya bağlayın -->
+  <!-- styles.css dosyasını bağlama -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Particles.js arkaplanı için div -->
-  <div id="particles-js"></div>
-  
-  <!-- Quiz içeriği -->
-  <div id="quiz-container">
-    <h1>Soulslike Bilgi Yarışması</h1>
-    <!-- Quiz soruları ve içerikler buraya yüklenecek -->
+  <!-- Oyun seçimi ekranı -->
+  <div id="game-selection-container">
+    <h2>Hangi oyunun testini yapmak istersiniz?</h2>
+    <button class="game-btn" data-game="dark_souls_1">Dark Souls 1</button>
+    <button class="game-btn" data-game="dark_souls_2">Dark Souls 2</button>
+    <button class="game-btn" data-game="dark_souls_3">Dark Souls 3</button>
+    <button class="game-btn" data-game="elden_ring">Elden Ring</button>
+  </div>
+
+  <!-- Quiz ekranı -->
+  <div id="quiz-container" style="display: none;">
+    <!-- Sorular ve içerikler buraya dinamik olarak yüklenecek -->
   </div>
 
   <!-- Sonuçların görüntülendiği yer -->
-  <div id="result-container"></div>
+  <div id="result-container" style="display: none;">
+    <!-- Sonuçlar buraya yüklenecek -->
+  </div>
 
-  <!-- Particles.js kütüphanesi -->
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  
-  <!-- script.js dosyasını buraya bağlayın -->
+  <!-- script.js dosyasını bağlama -->
   <script src="script.js"></script>
 </body>
 </html>

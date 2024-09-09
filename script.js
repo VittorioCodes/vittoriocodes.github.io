@@ -1,5 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
   let body = document.body;
+  let questions = [];
+  let score = 0;
+  let questionIndex = 0;
+  let selectedGame = '';
 
   // Fare hareketini algıla ve arka plan rengini tatlı mor tonlarında değiştir
   window.addEventListener('mousemove', function (e) {
@@ -7,44 +11,37 @@ document.addEventListener('DOMContentLoaded', function () {
     let y = e.clientY / window.innerHeight;
 
     // Mor tonlarına odaklanmış renk geçişi
-    let baseR = 150 + (x * 50);  // Hafif kırmızımsı-mor tonları
-    let baseG = 50 + (y * 50);   // Daha az yeşil ton, moru vurgulamak için
+    let baseR = 150 + (x * 50);  // Kırmızımsı-mor tonları
+    let baseG = 50 + (y * 50);   // Daha az yeşil ton, moru öne çıkarmak için
     let baseB = 200 + (x * 30);  // Mavi-mor tonlarını güçlendirmek için
 
     // Fare konumuna göre dinamik arka plan değişikliği
     body.style.background = `linear-gradient(${45 + (x * 90)}deg, rgba(${baseR}, ${baseG}, ${baseB}, 1), rgba(${baseR - 50}, ${baseG + 30}, ${baseB - 30}, 1))`;
   });
 
-  let questions = [];
-  let score = 0;
-  let questionIndex = 0;
+  // Oyun seçimi ekranını göster
+  function showGameSelectionScreen() {
+    const gameSelectionContainer = document.getElementById('game-selection-container');
+    gameSelectionContainer.style.display = 'block';
+    document.getElementById('quiz-container').style.display = 'none';
+    document.getElementById('result-container').style.display = 'none';
 
-  // Başlangıç ekranını yükle
-  showStartScreen();
-
-  function showStartScreen() {
-    const quizContainer = document.getElementById('quiz-container');
-    quizContainer.style.display = 'block'; // Quiz ekranını tekrar görünür hale getirme
-    document.getElementById('result-container').innerHTML = ''; // Sonuçları temizleme
-
-    quizContainer.innerHTML = `
-      <h2>Soulslike Bilgi Yarışmasına Hoş Geldiniz!</h2>
-      <button id="start-btn" class="button">Teste Başla</button>
-    `;
-
-    // "Teste Başla" butonuna tıklanınca testi başlat
-    document.getElementById('start-btn').addEventListener('click', function () {
-      startQuiz();
+    const gameButtons = document.querySelectorAll('.game-btn');
+    gameButtons.forEach(button => {
+      button.addEventListener('click', function () {
+        selectedGame = this.getAttribute('data-game');
+        startQuiz(); // Seçilen oyuna göre testi başlat
+      });
     });
   }
 
   // Testi başlat
   function startQuiz() {
-    score = 0; // Skoru sıfırla
-    questionIndex = 0; // Soru indeksini sıfırla
+    score = 0;
+    questionIndex = 0;
 
-    // Soruları JSON dosyasından çek
-    fetch('questions.json')
+    // Seçilen oyunun JSON dosyasını yükle
+    fetch(`${selectedGame}.json`)
       .then(response => response.json())
       .then(data => {
         questions = shuffleArray(data).slice(0, 10); // Rastgele 10 soru seç
@@ -54,23 +51,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function loadQuestion() {
     const quizContainer = document.getElementById('quiz-container');
-    quizContainer.innerHTML = '';
+    quizContainer.style.display = 'block';
+    document.getElementById('game-selection-container').style.display = 'none';
+    document.getElementById('result-container').style.display = 'none';
 
     const currentQuestion = questions[questionIndex];
+    quizContainer.innerHTML = '';
 
-    // Şıkları karıştır ve doğru şık yeni sırasını bul
-    const shuffledOptions = shuffleArray([...currentQuestion.options]);
-    const correctAnswer = shuffledOptions.indexOf(currentQuestion.options[currentQuestion.correctAnswer]);
-
-    // Soruyu ekle
     const questionElement = document.createElement('h2');
     questionElement.textContent = currentQuestion.question;
     quizContainer.appendChild(questionElement);
 
-    // Şıkları 2x2 yerleştir
     const optionsContainer = document.createElement('div');
     optionsContainer.classList.add('options-grid');
-    shuffledOptions.forEach((option, index) => {
+    currentQuestion.options.forEach((option, index) => {
       const optionLabel = document.createElement('label');
       optionLabel.classList.add('option-box');
       const optionInput = document.createElement('input');
@@ -78,9 +72,8 @@ document.addEventListener('DOMContentLoaded', function () {
       optionInput.name = 'option';
       optionInput.value = index;
 
-      // Yanıt seçildiğinde sonucu işleme
       optionInput.addEventListener('change', function () {
-        handleAnswerSelection(index, correctAnswer);
+        handleAnswerSelection(index, currentQuestion.correctAnswer);
       });
 
       optionLabel.appendChild(optionInput);
@@ -88,9 +81,56 @@ document.addEventListener('DOMContentLoaded', function () {
       optionsContainer.appendChild(optionLabel);
     });
     quizContainer.appendChild(optionsContainer);
+  }
 
-    // Doğru cevabın sırasını güncelle
-    questions[questionIndex].correctAnswer = correctAnswer;
+  function handleAnswerSelection(selectedIndex, correctAnswer) {
+    if (selectedIndex === correctAnswer) {
+      score++;
+    }
+    questionIndex++;
+    if (questionIndex < questions.length) {
+      loadQuestion();
+    } else {
+      showResult();
+    }
+  }
+
+  function showResult() {
+    const quizContainer = document.getElementById('quiz-container');
+    quizContainer.style.display = 'none';
+    const resultContainer = document.getElementById('result-container');
+    resultContainer.style.display = 'block';
+    const finalScore = ((score / questions.length) * 100).toFixed(0);
+
+    resultContainer.innerHTML = `<h2>Puanınız: ${finalScore} / 100</h2>`;
+    if (finalScore === 100) {
+      resultContainer.innerHTML += "<p>Tebrikler! FromSoftware seni ayakta alkışlıyor!</p>";
+    } else if (finalScore >= 80) {
+      resultContainer.innerHTML += "<p>En iyisi olmasan da Solaire seni hâlâ seviyor! \\o/</p>";
+    } else if (finalScore >= 60) {
+      resultContainer.innerHTML += "<p>Flask içmeyi yeni öğrenmişsin. Daha fazla çabalaman lazım!</p>";
+    } else {
+      resultContainer.innerHTML += "<p>Yeterli değilsin!</p>";
+    }
+
+    // Sonucu paylaşma butonu
+    resultContainer.innerHTML += `
+      <button id="share-btn" class="button">Sonucu Paylaş</button>
+    `;
+
+    document.getElementById('share-btn').addEventListener('click', function () {
+      const tweetText = `Soulslike Bilgi Yarışması'nda ${finalScore} puan aldım! Sen de deneyebilirsin! https://vittoriocodes.github.io`;
+      const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
+      window.open(tweetUrl, '_blank');
+    });
+
+    resultContainer.innerHTML += `
+      <button id="retry-btn" class="button">Tekrar Dene</button>
+    `;
+
+    document.getElementById('retry-btn').addEventListener('click', function () {
+      showGameSelectionScreen(); // Başlangıç ekranına dön
+    });
   }
 
   // Şıkları karıştır
@@ -102,55 +142,5 @@ document.addEventListener('DOMContentLoaded', function () {
     return array;
   }
 
-  // Yanıt seçildiğinde sonucu işle
-  function handleAnswerSelection(selectedIndex, correctAnswer) {
-    if (selectedIndex === correctAnswer) {
-      score++;
-    }
-    questionIndex++;
-    if (questionIndex < questions.length) {
-      loadQuestion(); // Yeni soruyu yükle
-    } else {
-      showResult(); // Test bittiğinde sonucu göster
-    }
-  }
-
-  function showResult() {
-    document.getElementById('quiz-container').style.display = 'none'; // Soruların bulunduğu div'i gizle
-    const resultContainer = document.getElementById('result-container');
-    const finalScore = ((score / questions.length) * 100).toFixed(0); // Ondalık olmadan gösterim
-
-    resultContainer.innerHTML = `<h2>Puanınız: ${finalScore} / 100</h2>`;
-
-    // Puan aralığına göre mesaj göster
-    if (finalScore === 100) {
-      resultContainer.innerHTML += "<p>Tebrikler! FromSoftware seni ayakta alkışlıyor!</p>";
-    } else if (finalScore >= 80) {
-      resultContainer.innerHTML += "<p>En iyisi olmasan da Solaire seni hâlâ seviyor! \\o/</p>";
-    } else if (finalScore >= 60) {
-      resultContainer.innerHTML += "<p>Flask içmeyi yeni öğrenmişsin. Daha fazla çabalaman lazım!</p>";
-    } else {
-      resultContainer.innerHTML += "<p>Yeterli değilsin!</p>";
-    }
-
-    resultContainer.classList.add('result-style'); // Sonuç stilini uygula
-
-    // Tekrar deneme ve paylaşma butonlarını ekle
-    resultContainer.innerHTML += `
-      <button id="retry-btn" class="button">Tekrar Dene</button>
-      <button id="share-btn" class="button">Paylaş</button>
-    `;
-
-    // Tekrar Dene butonuna tıklanınca testi baştan başlat
-    document.getElementById('retry-btn').addEventListener('click', function () {
-      showStartScreen(); // Başlangıç ekranına dön ve testi sıfırla
-    });
-
-    // Paylaş butonuna tıklanınca X (Twitter) paylaşımını aç
-    document.getElementById('share-btn').addEventListener('click', function () {
-      const tweetText = `Soulslike Bilgi Yarışması'nda ${finalScore} puan aldım! Sen de deneyebilirsin!`;
-      const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
-      window.open(tweetUrl, '_blank');
-    });
-  }
+  showGameSelectionScreen(); // Uygulama başladığında oyun seçimi ekranını göster
 });
