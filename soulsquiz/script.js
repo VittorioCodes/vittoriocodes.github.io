@@ -210,6 +210,12 @@ document.addEventListener('DOMContentLoaded', function () {
             ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
             ctx.filter = 'none'; // Diğer çizimlerde bulanıklık istemiyoruz
 
+            // Yazı gölgesi ekleme
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.7)';  // Siyah yarı saydam gölge
+            ctx.shadowBlur = 4;  // Hafif bir blur efekti
+            ctx.shadowOffsetX = 3;  // Gölgeyi yatayda kaydırma
+            ctx.shadowOffsetY = 3;  // Gölgeyi dikeyde kaydırma
+
             // Yazılar ve sonuç verileri
             ctx.font = '30px Georgia';
             ctx.fillStyle = '#ffffff'; // Beyaz renk
