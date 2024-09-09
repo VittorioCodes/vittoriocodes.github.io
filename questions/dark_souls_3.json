@@ -1,77 +1,77 @@
 [
     {
-      "question": "Soru1?",
-      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "question": "Oyundaki karakterimizin adı nedir?",
+      "options": ["Unkindled", "Ashen One", "Hollow", "Chosen Undead"],
       "correctAnswer": 1
     },
     {
-      "question": "Soru2?",
+      "question": "Oyundaki merkez bölgenin adı nedir?",
       "options": ["Majula", "Firelink Shrine", "Hunter's Dream", "Roundtable Hold"],
       "correctAnswer": 1
     },
     {
-      "question": "Soru3?",
-      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "question": "İlk boss olan Iudex Gundyr ile savaştığımız bölgenin adı nedir?",
+      "options": ["Firelink Shrine", "Cemetery of Ash", "Undead Settlement", "High Wall of Lothric"],
       "correctAnswer": 1
     },
     {
-      "question": "Soru4?",
-      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "question": "Nameless King hangi bölgede bulunur?",
+      "options": ["Lothric Castle", "Archdragon Peak", "Farron Keep", "Cathedral of the Deep"],
       "correctAnswer": 1
     },
     {
-      "question": "Soru5?",
-      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "question": "Oyunda Estus Flask sayımızı artırmaya yarayan eşya hangisidir?",
+      "options": ["Fire Keeper Soul", "Estus Shard", "Ashen Estus Flask", "Undead Bone Shard"],
       "correctAnswer": 1
     },
     {
-      "question": "Soru6?",
-      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "question": "Abyss Watchers hangi Covenant'a bağlıdır?",
+      "options": ["Darkwraiths", "Watchdogs of Farron", "Warriors of Sunllight", "Mound-Makers"],
       "correctAnswer": 1
     },
     {
-      "question": "Soru7?",
-      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "question": "Oyunun son boss'u hangisidir?",
+      "options": ["Aldrich", "Soul of Cinder", "Gwyn", "Lothric, Younger Prince"],
       "correctAnswer": 1
     },
     {
-      "question": "Soru8?",
-      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "question": "Champion Gundyr ile hangi bölgede tekrar karşılaşılır?",
+      "options": ["Firelink Shrine", "Untended Graves", "Anor Londo", "Farron Keep"],
       "correctAnswer": 1
     },
     {
-      "question": "Soru9?",
-      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "question": "Nameless King'in ruhu ile hangi silah elde edilebilir?",
+      "options": ["Storm Ruler", "Dragonslayer Swordspear", "Sunlight Straight Sword", "Fume Ultra Greatsword"],
       "correctAnswer": 1
     },
     {
-      "question": "Soru10?",
-      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "question": "Hangi NPC, oyuncuya Hollow durumunu iyileştirme imkanı sunar?",
+      "options": ["Andre the Blacksmith", "Fire Keeper", "Yoel of Londor", "Sirris of the Sunless Realms"],
       "correctAnswer": 1
     },
     {
-      "question": "Soru11?",
-      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "question": "Old Demon King boss'u hangi bölgede bulunur?",
+      "options": ["Farron Keep", "Smouldering Lake", "Undead Settlement", "Cathedral of the Deep"],
       "correctAnswer": 1
     },
     {
-      "question": "Soru12?",
-      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "question": "Hangi boss'un kanatları vardır?",
+      "options": ["Vordt of the Boreal Valley", "Oceiros, the Consumed King", "Dancer of the Boreal Valley", "Dragonslayer Armour"],
       "correctAnswer": 1
     },
     {
-      "question": "Soru13?",
-      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "question": "Oyuncunun Hollowing durumunu tersine çevirmek için hangi eşya kullanılır?",
+      "options": ["Undead Bone Shard", "Purging Stone", "Hollow Gem", "Fire Keeper Soul"],
       "correctAnswer": 1
     },
     {
-      "question": "Soru14?",
-      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "question": "Oyuncunun taşıyabileceği ağırlık sınırını arttıran özelliğin adı nedir?",
+      "options": ["Vigor", "Vitality", "Endurance", "Strength"],
       "correctAnswer": 1
     },
     {
-      "question": "Soru15?",
-      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "question": "Oyunda karakterinizin karşı cinsiyeti olarak karşınıza çıkan ve evlenip(?) gizli son yapabileceğiniz NPC kimdir?",
+      "options": ["Unbreakable Patches", "Anri of Astora", "Sirris of the Sunless Realms", "Siegward of Catarina"],
       "correctAnswer": 1
     }
   ]

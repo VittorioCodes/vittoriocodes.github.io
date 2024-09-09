@@ -1,77 +1,77 @@
 [
     {
-      "question": "Soru1?",
-      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "question": "Aşağıdakilerden hangisi Godfrey'in çocuğu değildir?",
+      "options": ["Mohg, Lord of Blood", "Malenia, Blade of Miquella", "Morgott, the Omen King", "Godwyn the Golden"],
       "correctAnswer": 1
     },
     {
-      "question": "Soru2?",
-      "options": ["Majula", "Firelink Shrine", "Hunter's Dream", "Roundtable Hold"],
+      "question": "Oyunda hiçbir yan görev yapmadan Roundtable Hold'a ilk gittiğimizde orada kaç NPC vardır?",
+      "options": ["8", "9", "10", "11"],
       "correctAnswer": 1
     },
     {
-      "question": "Soru3?",
-      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "question": "Ana oyunda Radahn'ın lakabı nedir?",
+      "options": ["Lord of Blasphemy", "Starscourge", "Black Blade", "First Elden Lord"],
       "correctAnswer": 1
     },
     {
-      "question": "Soru4?",
-      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "question": "Margit the Fell Omen'in gerçek kimliği hangisidir?",
+      "options": ["Mohg, Lord of Blood", "Morgott, the Omen King", "Melina, the Omen Queen", "Miquella the Fell Omen"],
       "correctAnswer": 1
     },
     {
-      "question": "Soru5?",
-      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "question": "Rennala, Queen of the Full Moon'un kızının adı nedir?",
+      "options": ["Millicent", "Ranni the Witch", "Nepheli Loux", "Rellana"],
       "correctAnswer": 1
     },
     {
-      "question": "Soru6?",
-      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "question": "Işınlanmak ve canımızı doldurmak için oturduğumuz yerin adı nedir?",
+      "options": ["Bonfire", "Grace", "Idol", "Lantern"],
       "correctAnswer": 1
     },
     {
-      "question": "Soru7?",
-      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "question": "Ana oyunda bosslardan alınabilen kaç adet Great Rune vardır?",
+      "options": ["6", "7", "5", "8"],
       "correctAnswer": 1
     },
     {
-      "question": "Soru8?",
-      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "question": "Oyunun sonunu etkileyen kaç adet Mending Rune vardır?",
+      "options": ["2", "3", "4", "5"],
       "correctAnswer": 1
     },
     {
-      "question": "Soru9?",
-      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "question": "Oyunda en fazla kaç adet Crimson/Cerulean flask'e sahip olabiliriz?",
+      "options": ["13", "14", "15", "12"],
       "correctAnswer": 1
     },
     {
-      "question": "Soru10?",
-      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "question": "Oyuna başladığımız bölgenin adı nedir?",
+      "options": ["Weeping Peninsula", "Limgrave", "Caelid", "Altus Plateau"],
       "correctAnswer": 1
     },
     {
-      "question": "Soru11?",
-      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "question": "Ana oyunun geçtiği genel bölgenin adı nedir?",
+      "options": ["The Shadow Realm", "The Lands Between", "Erdtree", "Siofra"],
       "correctAnswer": 1
     },
     {
-      "question": "Soru12?",
-      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "question": "Ana oyunda kaç tane Legend boss vardır?",
+      "options": ["14", "15", "16", "13"],
       "correctAnswer": 1
     },
     {
-      "question": "Soru13?",
-      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "question": "Radagon aslında kimdir?",
+      "options": ["Radahn", "Marika", "Elden Beast", "Dragonlord Placidusax"],
       "correctAnswer": 1
     },
     {
-      "question": "Soru14?",
-      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "question": "Oyunda en erken karşılaşabileceğiniz boss hangisidir?",
+      "options": ["Tree Sentinel", "Soldier of Godrick", "Margit the Fell Omen", "Night's Cavalry"],
       "correctAnswer": 1
     },
     {
-      "question": "Soru15?",
-      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "question": "Oyundaki Mimic sandıklar ne yapar?",
+      "options": ["Canavara dönüşüp sizi yer", "Grace'e oturmadığınız sürece ışınlanamayacağınız bir yere ışınlar", "Hiçbir değeri olmayan Rubbish eşyasını verir", "Açmaya çalışınca patlar"],
       "correctAnswer": 1
     }
   ]
