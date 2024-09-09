@@ -1,4 +1,15 @@
 ## Projelerim
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZPSK0ZM7JE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZPSK0ZM7JE');
+</script>
+</head>
 <div class="card">
   <h3>Soulslike Game Quiz</h3>
   <p><b>Dark Souls 1-2-3 ve Elden Ring quiz</b><br></p>
