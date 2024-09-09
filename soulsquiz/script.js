@@ -178,55 +178,63 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function generateResultImage(finalScore, gameName) {
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-
-    // Canvas boyutu (600x300 gibi bir boyut)
-    canvas.width = 600;
-    canvas.height = 300;
-
-    // Oyun arkaplanlarını seçme
-    let backgroundImage = new Image();
-    if (gameName === 'Dark Souls 1') {
-        backgroundImage.src = 'images/dark_souls_1_bg.jpeg';
-    } else if (gameName === 'Dark Souls 2') {
-        backgroundImage.src = 'images/dark_souls_2_bg.jpeg';
-    } else if (gameName === 'Dark Souls 3') {
-        backgroundImage.src = 'images/dark_souls_3_bg.jpeg';
-    } else if (gameName === 'Elden Ring') {
-        backgroundImage.src = 'images/elden_ring_bg.jpg';
-    }
-
-    // Arkaplan resmi yüklendiğinde canvas üzerine çizim yapma
-    backgroundImage.onload = function() {
-        // Arkaplanı canvas'a çiz
-        ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
-
-        // Hafif bir blur efekti ekleyin (dış bir katman gibi görünecek)
-        ctx.filter = 'blur(5px)';
-        ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
-        ctx.filter = 'none'; // Diğer çizimlere blur eklememek için filtreyi kaldır
-
-        // Yazılar ve sonuç verilerini ekle
-        ctx.font = '30px Arial';
-        ctx.fillStyle = '#ffffff'; // Beyaz renk
-        ctx.fillText('Soulslike Quiz Sonuçları', 150, 50);
-
-        ctx.font = '24px Arial';
-        ctx.fillText(`Oyun: ${gameName}`, 150, 120);
-        ctx.fillText(`Puan: ${finalScore} / 100`, 150, 170);
-
-        // İmza
-        ctx.font = '16px Arial';
-        ctx.fillText('vittoriocodes.github.io', 150, 250);
-
-        // Görseli base64 formatına çevir ve geri döndür
-        const resultImage = canvas.toDataURL('image/png');
+    return new Promise((resolve, reject) => {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
         
-        // Görseli döndüren bir promise
-        resolve(resultImage);
-    };
+        // Canvas boyutu (örneğin 600x300)
+        canvas.width = 600;
+        canvas.height = 300;
+
+        // Arkaplan görseli
+        let backgroundImage = new Image();
+        
+        // Seçilen oyuna göre arkaplan görselleri
+        if (gameName === 'Dark Souls 1') {
+            backgroundImage.src = 'images/dark_souls_1_bg.jpeg';
+        } else if (gameName === 'Dark Souls 2') {
+            backgroundImage.src = 'images/dark_souls_2_bg.jpeg';
+        } else if (gameName === 'Dark Souls 3') {
+            backgroundImage.src = 'images/dark_souls_3_bg.jpeg';
+        } else if (gameName === 'Elden Ring') {
+            backgroundImage.src = 'images/elden_ring_bg.jpg';
+        }
+
+        // Arkaplan görseli yüklendiğinde çizim yapma
+        backgroundImage.onload = function() {
+            // Arkaplanı Canvas'a çiz
+            ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+
+            // Hafif bir blur efekti ekleyin
+            ctx.filter = 'blur(5px)';
+            ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+            ctx.filter = 'none'; // Diğer çizimlerde bulanıklık istemiyoruz
+
+            // Yazılar ve sonuç verileri
+            ctx.font = '30px Arial';
+            ctx.fillStyle = '#ffffff'; // Beyaz renk
+            ctx.fillText('Soulslike Quiz Sonuçları', 150, 50);
+
+            ctx.font = '24px Arial';
+            ctx.fillText(`Oyun: ${gameName}`, 150, 120);
+            ctx.fillText(`Puan: ${finalScore} / 100`, 150, 170);
+
+            // İmza
+            ctx.font = '16px Arial';
+            ctx.fillText('vittoriocodes.github.io', 150, 250);
+
+            // Görseli base64 formatına çevir
+            const resultImage = canvas.toDataURL('image/png');
+            resolve(resultImage); // Sonuç olarak görseli geri döndür
+        };
+
+        // Görsel yüklenemezse hata yakala
+        backgroundImage.onerror = function() {
+            reject('Görsel yüklenemedi. Dosya yolunu kontrol edin.');
+        };
+    });
 }
+
 
 
 
@@ -253,14 +261,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Sonuç görselini oluştur
-    const resultImage = generateResultImage(finalScore, gameName);
-    // Sonuç görselini sonuç ekranına ekle (img etiketi olarak)
-    const resultImageElement = document.createElement('img');
-    resultImageElement.src = resultImage; // Base64 veri URI'yi src olarak kullan
-    resultImageElement.alt = 'Test Sonucu Görseli';
-    resultImageElement.style.display = 'block';
-    resultImageElement.style.margin = '20px auto';
-    resultContainer.appendChild(resultImageElement); // Görseli sonuç ekranına ekle
+    generateResultImage(finalScore, gameName).then(resultImage => {
+      // Sonuç görselini sonuç ekranına ekle
+      const resultImageElement = document.createElement('img');
+      resultImageElement.src = resultImage;
+      resultImageElement.alt = 'Test Sonucu Görseli';
+      resultImageElement.style.display = 'block';
+      resultImageElement.style.margin = '20px auto';
+      resultContainer.appendChild(resultImageElement);
+    }).catch(error => {
+      console.error(error); // Hata varsa konsola yaz
+    });
+  
 
     resultContainer.innerHTML += `
       <button id="retry-btn" class="button">Tekrar Dene</button>
