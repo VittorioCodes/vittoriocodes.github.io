@@ -1,10 +1,18 @@
 remote_theme: vaibhavvikas/jekyll-theme-minimalistic
-title: VittorioCodes Main Site
-description: For Soulslike games quiz, <a href="https://vittoriocodes.github.io/soulsquiz">click me</a>
+title: VittorioCodes
+description: I try to learn and develop some stuff on my way. Basically a gamer with geeky interests.
+
+platforms:
+  - name: GitHub
+    icon: <i class="fa-brands fa-github"></i>
+    link: https://github.com/vittoriocodes
+  - name: Twitter(X)
+    icon: <i class="fa-brands fa-twitter"></i>
+    link: https://x.com/VittorioKun
 
 navigation:
 - name: Soulslike Games Quiz
-  link: ./soulsquiz.html
+  link: ./soulsquiz
 - name: Phasmophobia İnteraktif Rehber
   link: https://tybayn.github.io/phasmo-cheat-sheet-tr/
 
