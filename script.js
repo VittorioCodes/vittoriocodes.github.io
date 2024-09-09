@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Puan aralıklarına göre mesajlar doğru sırayla kontrol ediliyor
     if (finalScore == 100) {
-      resultContainer.innerHTML = `<h2>Puanınız: ${finalScore} / 100</h2><p>Tebrikler! FromSoftware seni ayakta alkışlıyor!</p>`;
+      resultContainer.innerHTML = `<h2>Puanın: ${finalScore} / 100</h2><p>Tebrikler! FromSoftware seni ayakta alkışlıyor!</p>`;
     } else if (finalScore >= 80) {
       solaireAnimation = `<img src="images/solaire_pixel.gif" alt="Solaire" class="solaire-animation">`; // Solaire animasyonu
       resultContainer.innerHTML = `<h2>Puanınız: ${finalScore} / 100</h2><p>En iyisi olmasan da Solaire seni hâlâ seviyor! \\o/</p>${solaireAnimation}`;
