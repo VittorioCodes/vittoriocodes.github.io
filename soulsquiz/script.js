@@ -177,34 +177,57 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Canvas API ile sonuç görseli oluşturma fonksiyonu
-function generateResultImage(finalScore, gameName) {
-  const canvas = document.createElement('canvas');
-  const ctx = canvas.getContext('2d');
-  
-  // Canvas boyutu ve arka plan rengi
-  canvas.width = 600;
-  canvas.height = 300;
-  ctx.fillStyle = '#282c34'; // Arka plan rengi
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  function generateResultImage(finalScore, gameName) {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
 
-  // Başlık
-  ctx.font = '30px Arial';
-  ctx.fillStyle = '#ffffff'; // Beyaz renk
-  ctx.fillText('Soulslike Quiz Sonuçları', 150, 50);
+    // Canvas boyutu (600x300 gibi bir boyut)
+    canvas.width = 600;
+    canvas.height = 300;
 
-  // Oyun adı ve skor
-  ctx.font = '24px Arial';
-  ctx.fillText(`Oyun: ${gameName}`, 150, 120);
-  ctx.fillText(`Puan: ${finalScore} / 100`, 150, 170);
+    // Oyun arkaplanlarını seçme
+    let backgroundImage = new Image();
+    if (gameName === 'Dark Souls 1') {
+        backgroundImage.src = 'images/dark_souls_1_bg.jpeg';
+    } else if (gameName === 'Dark Souls 2') {
+        backgroundImage.src = 'images/dark_souls_2_bg.jpeg';
+    } else if (gameName === 'Dark Souls 3') {
+        backgroundImage.src = 'images/dark_souls_3_bg.jpeg';
+    } else if (gameName === 'Elden Ring') {
+        backgroundImage.src = 'images/elden_ring_bg.jpg';
+    }
 
-  // İmza
-  ctx.font = '16px Arial';
-  ctx.fillText('vittoriocodes.github.io', 150, 250);
+    // Arkaplan resmi yüklendiğinde canvas üzerine çizim yapma
+    backgroundImage.onload = function() {
+        // Arkaplanı canvas'a çiz
+        ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
 
-  // Görseli base64 formatına çevir
-  return canvas.toDataURL('image/png');
+        // Hafif bir blur efekti ekleyin (dış bir katman gibi görünecek)
+        ctx.filter = 'blur(5px)';
+        ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+        ctx.filter = 'none'; // Diğer çizimlere blur eklememek için filtreyi kaldır
+
+        // Yazılar ve sonuç verilerini ekle
+        ctx.font = '30px Gabarito';
+        ctx.fillStyle = '#ffffff'; // Beyaz renk
+        ctx.fillText('Soulslike Quiz Sonuçları', 150, 50);
+
+        ctx.font = '24px Gabarito';
+        ctx.fillText(`Oyun: ${gameName}`, 150, 120);
+        ctx.fillText(`Puan: ${finalScore} / 100`, 150, 170);
+
+        // İmza
+        ctx.font = '16px Gabarito';
+        ctx.fillText('vittoriocodes.github.io', 150, 250);
+
+        // Görseli base64 formatına çevir ve geri döndür
+        const resultImage = canvas.toDataURL('image/png');
+        
+        // Görseli döndüren bir promise
+        resolve(resultImage);
+    };
 }
+
 
 
   function showResult() {
