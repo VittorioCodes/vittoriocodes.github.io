@@ -113,23 +113,23 @@ document.addEventListener('DOMContentLoaded', function () {
       resultContainer.innerHTML += "<p>Yeterli değilsin!</p>";
     }
 
-    // Sonucu paylaşma butonu
-    resultContainer.innerHTML += `
-      <button id="share-btn" class="button">Sonucu Paylaş</button>
-    `;
-
-    document.getElementById('share-btn').addEventListener('click', function () {
-      const tweetText = `Soulslike Bilgi Yarışması'nda ${finalScore} puan aldım! Sen de deneyebilirsin! https://vittoriocodes.github.io`;
-      const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
-      window.open(tweetUrl, '_blank');
-    });
-
     resultContainer.innerHTML += `
       <button id="retry-btn" class="button">Tekrar Dene</button>
     `;
 
     document.getElementById('retry-btn').addEventListener('click', function () {
       showGameSelectionScreen(); // Başlangıç ekranına dön
+    });
+
+    // Sonucu paylaşma butonu
+    resultContainer.innerHTML += `
+    <button id="share-btn" class="button">Sonucu Paylaş</button>
+    `;
+  
+    document.getElementById('share-btn').addEventListener('click', function () {
+      const tweetText = `Soulslike Bilgi Yarışması'nda ${finalScore} puan aldım! Sen de deneyebilirsin! https://vittoriocodes.github.io`;
+      const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
+      window.open(tweetUrl, '_blank');
     });
   }
 

@@ -19,18 +19,19 @@ body.dynamic-bg {
   background: linear-gradient(45deg, #1e1e1e, #313131); /* Default renk */
 }
 
-/* Quiz container */
-#quiz-container {
+/* Quiz ve Oyun seçimi container */
+#quiz-container,
+#game-selection-container {
   width: 80%;
   max-width: 600px;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.2); /* Daha şeffaf, renksiz cam efekti */
-  backdrop-filter: blur(15px); /* Arkaplanı daha fazla bulanıklaştır */
+  background: rgba(49, 49, 49, 0.8); /* Cam efekti için arka plan */
+  backdrop-filter: blur(10px); /* Arka planı bulanıklaştır */
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   text-align: center;
   z-index: 1;
-  color: #fff; /* Yazı rengini beyaz yaparak okunabilirliği koruma */
+  color: #fff; /* Yazı rengi beyaz */
 }
 
 /* Sonuç ekranı stili */
@@ -47,19 +48,34 @@ body.dynamic-bg {
   gap: 15px;
 }
 
-/* Şıkların stili (cam görünüşlü kutular) */
-.option-box {
+/* 2x2 düzeni */
+#game-selection-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 sütun */
+  grid-template-rows: repeat(2, auto);   /* 2 satır */
+  gap: 15px; /* Butonlar arasındaki boşluk */
+  justify-content: center; /* Butonları yatay olarak ortalayalım */
+  align-items: center; /* Butonları dikey olarak ortalayalım */
+}
+
+/* Şıkların stili (cam görünüşlü kutular) ve oyun seçim butonları */
+.option-box,
+.game-btn {
   padding: 15px;
-  background: rgba(255, 255, 255, 0.15); /* Cam efekti */
-  backdrop-filter: blur(10px); /* Bulanıklık */
+  background: rgba(255, 255, 255, 0.1); /* Cam efekti */
+  backdrop-filter: blur(10px); /* Hafif bulanıklık */
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.5); /* Beyaz ince kontur */
   cursor: pointer;
   transition: background 0.3s ease, border 0.3s ease;
+  font-size: 1rem;
+  color: white; /* Buton yazı rengini beyaz yapalım */
+  text-align: center;
 }
 
-.option-box:hover {
-  background: rgba(255, 255, 255, 0.25); /* Üzerine gelindiğinde arka planı biraz daha net yap */
+.option-box:hover,
+.game-btn:hover {
+  background: rgba(255, 255, 255, 0.25); /* Hover olduğunda arka planı daha belirgin yap */
   border: 1px solid #ffffff; /* Üzerine gelindiğinde daha belirgin beyaz çerçeve */
 }
 

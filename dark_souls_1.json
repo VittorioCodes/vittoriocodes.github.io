@@ -25,13 +25,13 @@
       "correctAnswer": 1
     },
     {
-      "question": "Soru6?",
-      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "question": "Dark Souls 1'in ana karakterine nasıl seslenirler?",
+      "options": ["Ashen One", "Chosen Undead", "Tarnished", "Hollow"],
       "correctAnswer": 1
     },
     {
-      "question": "Soru7?",
-      "options": ["Dark Knight", "Abysswalker", "Dark Sun", "Legendary Knight"],
+      "question": "Estus Flask kullanma kapasitesini artırmak için hangi eşya gereklidir?",
+      "options": ["Estus Shard", "Fire Keeper Soul", "Golden Seed", "Sunlight Medal"],
       "correctAnswer": 1
     },
     {
