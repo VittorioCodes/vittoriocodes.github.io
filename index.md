@@ -8,3 +8,8 @@
   <p><b>Phasmophobia oyunu için indirilebilir ve çevrim içi senkron kullanılabilir rehber</b><br></p>
   <a href="https://tybayn.github.io/phasmo-cheat-sheet-tr/"><span class="card-link-spanner"></span></a>
 </div>
+<div class="card">
+  <h3>Yes, indeed.</h3>
+  <img src="./soulsquiz/images/bonfire.png"></img><br>
+  <span class="card-link-spanner"></span>
+</div>
