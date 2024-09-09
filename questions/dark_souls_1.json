@@ -58,6 +58,26 @@
       "question": "Artorias of the Abyss DLC'sinde, FromSoftware'in hangi oyunundan benzer bir karakter vardır?",
       "options": ["Elden Ring", "Bloodborne", "Demon's Souls", "Armored Core"],
       "correctAnswer": 1
+    },
+    {
+      "question": "Anor Londo bölgesinde hangi boss vardır?",
+      "options": ["Seath the Scaleless", "Ornstein and Smough", "Bed of Chaos", "Four Kings"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Moonlight Butterfly boss'u hangi bölgede bulunur?",
+      "options": ["Blighttown", "Darkroot Garden", "Tomb of the Giants", "Demon Ruins"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Oyunda “The Abyss” bölgesi hangi boss ile ilişkilidir?",
+      "options": ["Bed of Chaos", "Four Kings", "Iron Golem", "Crossbreed Priscilla"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "The Four Kings boss'u ile dövüşmek için hangi eşyayı takmamız/kullanmamız gerekebilir?",
+      "options": ["Ring of Fog", "Covenant of Artorias", "Wolf Ring", "Darkmoon Seance Ring"],
+      "correctAnswer": 1
     }
   ]
   

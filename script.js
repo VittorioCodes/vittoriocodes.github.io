@@ -12,11 +12,13 @@ document.addEventListener('DOMContentLoaded', function () {
     let x = e.clientX / window.innerWidth;
     let y = e.clientY / window.innerHeight;
 
-    let baseR = 150 + (x * 50); 
-    let baseG = 50 + (y * 50);   
-    let baseB = 200 + (x * 30);
+    // Pastel tonlar için renkleri daha düşük doygunlukta hesaplıyoruz
+    let baseR = 255 - (x * 100);  // Daha yumuşak kırmızı ton
+    let baseG = 200 + (y * 30);   // Yumuşak yeşil ton
+    let baseB = 255 - (x * 80);   // Yumuşak mavi ton
 
-    body.style.background = `linear-gradient(${45 + (x * 90)}deg, rgba(${baseR}, ${baseG}, ${baseB}, 1), rgba(${baseR - 50}, ${baseG + 30}, ${baseB - 30}, 1))`;
+    // Pastel renk geçişleri oluşturuluyor
+    body.style.background = `linear-gradient(${45 + (x * 90)}deg, rgba(${baseR}, ${baseG}, ${baseB}, 0.7), rgba(${baseR + 20}, ${baseG - 20}, ${baseB + 30}, 0.7))`;
   });
 
   // Müzik kontrol butonu ve ses seviyesi slider'ı

@@ -91,6 +91,7 @@ body.dynamic-bg {
   appearance: none;
   background: linear-gradient(to right, red 0%, red 0%, #ccc 0%, #ccc 100%); /* Başlangıçta kırmızı ve gri */
   height: 6px;
+  backdrop-filter: blur(8px); /* Hafif bulanıklık ile cam efekti */
   border-radius: 5px;
   outline: none;
 }
@@ -129,7 +130,8 @@ body.dynamic-bg {
 }
 
 #toggle-music-btn {
-  background-color: rgba(255, 255, 255, 0.2); /* Hafif şeffaf buton */
+  background-color: rgba(255, 255, 255, 0.4); /* Hafif şeffaf buton */
+  backdrop-filter: blur(8px); /* Hafif bulanıklık */
   color: white;
   border: none;
   padding: 10px;
@@ -140,7 +142,7 @@ body.dynamic-bg {
 }
 
 #toggle-music-btn:hover {
-  background-color: rgba(255, 255, 255, 0.4); /* Üzerine gelindiğinde renk değişir */
+  background-color: rgba(255, 255, 255, 0.6); /* Üzerine gelindiğinde renk değişir */
 }
 
 
