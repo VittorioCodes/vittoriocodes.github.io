@@ -241,16 +241,12 @@ function generateResultImage(finalScore, gameName) {
 
     resultContainer.innerHTML += `
       <button id="retry-btn" class="button">Tekrar Dene</button>
+      <button id="download-btn" class="button">Sonuç Görselini İndir</button>
       <button id="share-btn" class="button">Sonucu Paylaş</button>
     `;
 
     // Paylaş butonuna tıklandığında
     document.getElementById('share-btn').addEventListener('click', function () {
-      // Görseli indirilebilir hale getirmek
-      const link = document.createElement('a');
-      link.href = resultImage;
-      link.download = `test_sonuclari_${gameName}.png`; // Görselin adı
-      link.click();
 
       // Tweet metni
       const tweetText = `Soulslike Bilgi Yarışması'nda ${gameName} testinde ${finalScore} puan aldım! Sen de deneyebilirsin! https://vittoriocodes.github.io`;
@@ -258,7 +254,16 @@ function generateResultImage(finalScore, gameName) {
 
       // Yeni pencerede tweet paylaşma
       window.open(tweetUrl, '_blank');
-  });
+    });
+
+    // İndir butonuna tıklandığında
+    document.getElementById('download-btn').addEventListener('click', function () {
+      // Görseli indirilebilir hale getirmek
+      const link = document.createElement('a');
+      link.href = resultImage;
+      link.download = `test_sonuclari_${gameName}.png`; // Görselin adı
+      link.click();
+      });
 
     document.getElementById('retry-btn').addEventListener('click', function () {
       showGameSelectionScreen();
