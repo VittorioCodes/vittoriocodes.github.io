@@ -86,6 +86,45 @@ body.dynamic-bg {
 #volume-slider {
   width: 100px; /* Slider'ın genişliği */
   margin-right: 10px; /* Ses butonuna olan mesafe */
+  -webkit-appearance: none; /* Varsayılan stili kaldır */
+  appearance: none;
+  background: linear-gradient(to right, red 0%, red 0%, #ccc 0%, #ccc 100%); /* Başlangıçta kırmızı ve gri */
+  height: 6px;
+  border-radius: 5px;
+  outline: none;
+}
+
+/* Webkit tarayıcıları (Chrome, Safari) için slider */
+#volume-slider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 6px;
+  border-radius: 5px;
+}
+
+#volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 30px; /* Görselin genişliği */
+  height: 30px; /* Görselin yüksekliği */
+  background: url('images/bonfire.png'); /* Bonfire görseli */
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+  margin-top: -12px; /* Görseli ortalamak için */
+}
+
+#volume-slider::-moz-range-thumb {
+  width: 30px; /* Görselin genişliği */
+  height: 30px; /* Görselin yüksekliği */
+  background: url('images/bonfire.png'); /* Bonfire görseli */
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+}
+
+/* Progress bar'ı her kaydırmada güncelle */
+#volume-slider::-moz-range-track {
+  background: linear-gradient(to right, red 0%, #ccc 100%);
 }
 
 #toggle-music-btn {
