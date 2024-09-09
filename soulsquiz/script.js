@@ -310,6 +310,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }).catch(error => {
       console.error('Görsel oluşturulurken hata oluştu:', error);
     });
+
+    // "Tekrar Dene" butonuna tıklandığında oyunu yeniden başlat
+    document.getElementById('retry-btn').addEventListener('click', function () {
+      score = 0;  // Puanı sıfırla
+      questionIndex = 0;  // Soru indeksini sıfırla
+      showGameSelectionScreen();  // Oyun seçme ekranını tekrar göster
+    });
   }
 
   // Şıkları karıştır
