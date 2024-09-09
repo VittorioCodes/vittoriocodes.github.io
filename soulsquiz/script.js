@@ -211,16 +211,16 @@ document.addEventListener('DOMContentLoaded', function () {
             ctx.filter = 'none'; // Diğer çizimlerde bulanıklık istemiyoruz
 
             // Yazılar ve sonuç verileri
-            ctx.font = '700 30px Gabarito';
+            ctx.font = '30px Gabarito';
             ctx.fillStyle = '#ffffff'; // Beyaz renk
             ctx.fillText('Soulslike Quiz Sonuçları', 150, 50);
 
-            ctx.font = '700 24px Gabarito';
+            ctx.font = '24px Gabarito';
             ctx.fillText(`Oyun: ${gameName}`, 150, 120);
             ctx.fillText(`Puan: ${finalScore} / 100`, 150, 170);
 
             // İmza
-            ctx.font = '700 16px Gabarito';
+            ctx.font = '16px Gabarito';
             ctx.fillText('vittoriocodes.github.io', 150, 250);
 
             // Görseli base64 formatına çevir
