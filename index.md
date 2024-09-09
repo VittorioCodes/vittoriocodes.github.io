@@ -9,4 +9,5 @@
   <a href="https://tybayn.github.io/phasmo-cheat-sheet-tr/"><span class="card-link-spanner"></span></a>
 </div>
 <br>
-![Bonfire](https://i.pinimg.com/originals/a1/a3/c3/a1a3c30fb3cac89a927278099639fa5c.gif)
+![Bonfire](https://i.imgur.com/xCO1lmh.gif)
+![Solaire](https://giffiles.alphacoders.com/146/14685.gif)
