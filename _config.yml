@@ -1,6 +1,12 @@
-theme: jekyll-theme-minimal
+remote_theme: vaibhavvikas/jekyll-theme-minimalistic
 title: VittorioCodes Main Site
 description: For Soulslike games quiz, <a href="https://vittoriocodes.github.io/soulsquiz">click me</a>
+
+<div class="card">
+  <h3>Soulslike Games Quiz</h3>
+  <p><b>Dark Souls 1-2-3 ve Elden Ring quiz</b><br></p>
+  <a href="https://vittoriocodes.github.io/soulsquiz"><span class="card-link-spanner"></span></a>
+</div>
 
 navigation:
 - name: Soulslike Games Quiz
