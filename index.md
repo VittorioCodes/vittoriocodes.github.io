@@ -1,3 +1,4 @@
+## Projelerim
 <div class="card">
   <h3>Soulslike Game Quiz</h3>
   <p><b>Dark Souls 1-2-3 ve Elden Ring quiz</b><br></p>
@@ -10,5 +11,4 @@
 </div>
 <br>
 ## You look lonely, sit with Solaire for a minute.
-![Bonfire](https://i.imgur.com/xCO1lmh.gif)
 ![Solaire](https://giffiles.alphacoders.com/146/14685.gif)
