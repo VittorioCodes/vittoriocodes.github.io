@@ -10,5 +10,6 @@
   <a href="https://tybayn.github.io/phasmo-cheat-sheet-tr/"><span class="card-link-spanner"></span></a>
 </div>
 <br>
+* * *
 ## You look lonely, sit with Solaire for a minute.
 ![Solaire](https://giffiles.alphacoders.com/146/14685.gif)
