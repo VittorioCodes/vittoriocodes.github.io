@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function () {
       resultContainer.innerHTML = `<h2>Puanınız: ${finalScore} / 100</h2><p>Tebrikler! FromSoftware seni ayakta alkışlıyor!</p>`;
     } else if (finalScore >= 80) {
       solaireAnimation = `<img src="images/solaire_pixel.gif" alt="Solaire" class="solaire-animation">`; // Solaire animasyonu
-      resultContainer.innerHTML = `<h2>Puanınız: ${finalScore} / 100</h2><p>En iyisi olmasan da Solaire seni hâlâ seviyor! \\o/</p>`;
+      resultContainer.innerHTML = `<h2>Puanınız: ${finalScore} / 100</h2><p>En iyisi olmasan da Solaire seni hâlâ seviyor! \\o/</p>${solaireAnimation}`;
     } else if (finalScore >= 60) {
       resultContainer.innerHTML = `<h2>Puanınız: ${finalScore} / 100</h2><p>Flask içmeyi yeni öğrenmişsin. Daha fazla çabalaman lazım!</p>`;
     } else {
