@@ -8,15 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
   let isPlaying = false;
   // Oyun adlarını kullanıcı dostu metinlerle eşleştirme
   let gameName = '';
-  if (selectedGame === 'dark_souls_1') {
-    gameName = 'Dark Souls 1';
-  } else if (selectedGame === 'dark_souls_2') {
-    gameName = 'Dark Souls 2';
-  } else if (selectedGame === 'dark_souls_3') {
-    gameName = 'Dark Souls 3';
-  } else if (selectedGame === 'elden_ring') {
-    gameName = 'Elden Ring';
-  }
+  
 
   // Fare hareketini algıla ve arka plan rengini tatlı mor tonlarında değiştir
   window.addEventListener('mousemove', function (e) {
@@ -174,6 +166,16 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
       showResult();
     }
+  }
+
+  if (selectedGame === 'dark_souls_1') {
+    gameName = 'Dark Souls 1';
+  } else if (selectedGame === 'dark_souls_2') {
+    gameName = 'Dark Souls 2';
+  } else if (selectedGame === 'dark_souls_3') {
+    gameName = 'Dark Souls 3';
+  } else if (selectedGame === 'elden_ring') {
+    gameName = 'Elden Ring';
   }
 
   function showResult() {
