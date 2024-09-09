@@ -291,18 +291,18 @@ document.addEventListener('DOMContentLoaded', function () {
       window.open(tweetUrl, '_blank');
     });
 
-    // İndir butonuna tıklandığında
-    document.getElementById('download-btn').addEventListener('click', function () {
-      // Görseli indirilebilir hale getirmek
-      const link = document.createElement('a');
-      link.href = resultImage;
-      link.download = `test_sonuclari_${gameName}.png`; // Görselin adı
-      link.click();
+    // Sonuç görselini oluşturduktan sonra indirme butonunu aktif hale getirin
+    generateResultImage(finalScore, gameName).then(resultImage => {
+      // "Sonucu İndir" butonunu aktif hale getir
+      document.getElementById('download-btn').addEventListener('click', function () {
+          // Görseli indirilebilir hale getirmek
+          const link = document.createElement('a');
+          link.href = resultImage; // Base64 formatında veri URI
+          link.download = `test_sonuclari_${gameName}.png`; // Dosya adı
+          link.click(); // İndir işlemini tetikleme
       });
-
-    document.getElementById('retry-btn').addEventListener('click', function () {
-      showGameSelectionScreen();
-      audio.pause();
+    }).catch(error => {
+      console.error('Görsel oluşturulurken hata oluştu:', error);
     });
   }
 
