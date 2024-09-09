@@ -1,3 +1,13 @@
 theme: jekyll-theme-minimal
 title: VittorioCodes Main Site
 description: For Soulslike games quiz, <a href="https://vittoriocodes.github.io/soulsquiz">click me</a>
+
+navigation:
+- text: Soulslike Games Quiz
+  internal: true
+  url: ./Soulsquiz
+- text: Phasmophobia İnteraktif Rehber
+  internal: false
+  url: https://tybayn.github.io/phasmo-cheat-sheet-tr/
+
+google_analytics: G-ZPSK0ZM7JE
