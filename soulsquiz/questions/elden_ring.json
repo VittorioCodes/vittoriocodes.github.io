@@ -6,7 +6,7 @@
     },
     {
       "question": "Oyunda hiçbir yan görev yapmadan Roundtable Hold'a ilk gittiğimizde orada kaç NPC vardır?",
-      "options": ["8", "9", "10", "11"],
+      "options": ["6", "7", "8", "9"],
       "correctAnswer": 1
     },
     {
@@ -21,7 +21,7 @@
     },
     {
       "question": "Rennala, Queen of the Full Moon'un kızının adı nedir?",
-      "options": ["Millicent", "Ranni the Witch", "Nepheli Loux", "Rellana"],
+      "options": ["Millicent", "Ranni the Witch", "Nepheli Loux", "Rellana, Twin Moon Knight"],
       "correctAnswer": 1
     },
     {
