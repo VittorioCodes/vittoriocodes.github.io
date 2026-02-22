@@ -11,6 +11,8 @@ platforms:
     link: https://x.com/VittorioKun
 
 navigation:
+- name: Blender Gemini
+  link: https://github.com/VittorioCodes/BlenderGemini
 - name: Soulslike Games Quiz
   link: ./soulsquiz
 - name: Phasmophobia İnteraktif Rehber
