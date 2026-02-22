@@ -11,8 +11,13 @@
 </script>
 </head>
 <div class="card">
+  <h3>Blender Gemini</h3>
+  <p><b>State Aware AI Assistant inside Blender</b><br></p>
+  <a href="https://github.com/VittorioCodes/BlenderGemini"><span class="card-link-spanner"></span></a>
+</div>
+<div class="card">
   <h3>Soulslike Game Quiz</h3>
-  <p><b>Dark Souls 1-2-3 ve Elden Ring quiz</b><br></p>
+  <p><b>Dark Souls 1-2-3 & Elden Ring quiz</b><br></p>
   <a href="https://vittoriocodes.github.io/soulsquiz"><span class="card-link-spanner"></span></a>
 </div>
 <div class="card">
