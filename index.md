@@ -11,6 +11,11 @@
 </script>
 </head>
 <div class="card">
+  <h3>Steam Patch Analyzer</h3>
+  <p><b>Specialized AI-powered web utility designed for gamers. It distills complex, thousands-of-words-long patch notes into actionable intelligence in seconds</b><br></p>
+  <a href="https://vittoriocodes.github.io/Steam-Patch-Analyzer-Web/"><span class="card-link-spanner"></span></a>
+</div>
+<div class="card">
   <h3>Blender Gemini</h3>
   <p><b>State Aware AI Assistant inside Blender</b><br></p>
   <a href="https://github.com/VittorioCodes/BlenderGemini"><span class="card-link-spanner"></span></a>
