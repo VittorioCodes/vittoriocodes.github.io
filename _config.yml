@@ -12,7 +12,7 @@ platforms:
 
 navigation:
 - name: Steam Patch Analyzer
-  link: https://vittoriocodes.github.io/Steam-Patch-Analyzer-Web/
+  link: https://vittoriocodes.github.io/steam-patch-analyzer-web/
 - name: Blender Gemini
   link: https://github.com/VittorioCodes/BlenderGemini
 - name: Soulslike Games Quiz
