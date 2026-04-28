@@ -13,7 +13,7 @@
 <div class="card">
   <h3>Steam Patch Analyzer</h3>
   <p><b>Specialized AI-powered web utility designed for gamers. It distills complex, thousands-of-words-long patch notes into actionable intelligence in seconds</b><br></p>
-  <a href="https://vittoriocodes.github.io/Steam-Patch-Analyzer-Web/"><span class="card-link-spanner"></span></a>
+  <a href="https://vittoriocodes.github.io/steam-patch-analyzer-web/"><span class="card-link-spanner"></span></a>
 </div>
 <div class="card">
   <h3>Blender Gemini</h3>
